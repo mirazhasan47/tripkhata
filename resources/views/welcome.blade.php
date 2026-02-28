@@ -70,6 +70,71 @@
         </div>
     </section>
 
+    <div class="relative w-full max-w-5xl mx-auto mt-4 group">
+        <svg width="0" height="0" class="absolute">
+            <defs>
+                <clipPath id="roundedTabMask" clipPathUnits="objectBoundingBox">
+<path d="M 0,0.15 
+                         Q 0,0.02 0.02,0 
+                         L 0.62,0 
+                         Q 0.64,0 0.64,0.02 
+                         L 0.64,0.09 
+                         L 0.98,0.09 
+                         Q 1,0.09 1,0.11 
+                         L 1,0.85 
+                         Q 1,0.98 0.98,1 
+                         L 0.20,1 
+                         Q 0.12,1 0.05,0.95 
+                         L 0,0.82 Z" />
+                </clipPath>
+            </defs>
+        </svg>
+
+        <div class="absolute -inset-2 bg-gradient-to-r from-orange-500/20 to-slate-300/10 blur-2xl opacity-50"
+            style="clip-path: url(#roundedTabMask);"></div>
+
+        <div class="relative bg-white p-1 shadow-2xl transition-all duration-500 hover:shadow-orange-100"
+            style="clip-path: url(#roundedTabMask);">
+
+            <img src="{{ asset('heroImage.png') }}" alt="TripKhata Transport Ledger"
+                class="w-full h-auto object-cover block transition-transform duration-700 group-hover:scale-105"
+                style="clip-path: url(#roundedTabMask);">
+        </div>
+
+        <div
+            class="absolute -bottom-4 -right-2 bg-white p-3 rounded-2xl shadow-xl border border-slate-100 hidden md:flex items-center gap-3 z-30">
+            <div class="bg-green-100 p-2 rounded-full text-green-600">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                        d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 4.946-2.397 9.331-6 11.692-3.603-2.361-6-6.746-6-11.692 0-.68.056-1.35.166-2.001zm8.841 4.993a1 1 0 00-1.414-1.414L8 10.172 7.293 9.465a1 1 0 00-1.414 1.414l1.414 1.414a1 1 0 001.414 0l2.307-2.307z"
+                        clip-rule="evenodd" />
+                </svg>
+            </div>
+            <div class="text-left leading-tight">
+                <p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">নিরাপদ ডেটা</p>
+                <p class="text-sm font-bold text-slate-800">ক্লাউড ব্যাকআপ</p>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div
+        class="absolute -bottom-4 -right-2 bg-white p-3 rounded-2xl shadow-xl border border-slate-100 hidden md:flex items-center gap-3 z-30">
+        <div class="bg-green-100 p-2 rounded-full text-green-600">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                    d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 4.946-2.397 9.331-6 11.692-3.603-2.361-6-6.746-6-11.692 0-.68.056-1.35.166-2.001zm8.841 4.993a1 1 0 00-1.414-1.414L8 10.172 7.293 9.465a1 1 0 00-1.414 1.414l1.414 1.414a1 1 0 001.414 0l2.307-2.307z" />
+            </svg>
+        </div>
+        <div class="text-left leading-tight">
+            <p class="text-[10px] text-slate-500 font-bold uppercase">নিরাপদ ডেটা</p>
+            <p class="text-sm font-bold text-slate-800">ক্লাউড ব্যাকআপ</p>
+        </div>
+    </div>
+    </div>
+
+    
+
 
 </body>
 
