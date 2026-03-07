@@ -70,71 +70,180 @@
         </div>
     </section>
 
-    <div class="relative w-full max-w-5xl mx-auto mt-4 group">
-        <svg width="0" height="0" class="absolute">
-            <defs>
-                <clipPath id="roundedTabMask" clipPathUnits="objectBoundingBox">
-<path d="M 0,0.15 
-                         Q 0,0.02 0.02,0 
-                         L 0.62,0 
-                         Q 0.64,0 0.64,0.02 
-                         L 0.64,0.09 
-                         L 0.98,0.09 
-                         Q 1,0.09 1,0.11 
-                         L 1,0.85 
-                         Q 1,0.98 0.98,1 
-                         L 0.20,1 
-                         Q 0.12,1 0.05,0.95 
-                         L 0,0.82 Z" />
-                </clipPath>
-            </defs>
-        </svg>
 
-        <div class="absolute -inset-2 bg-gradient-to-r from-orange-500/20 to-slate-300/10 blur-2xl opacity-50"
-            style="clip-path: url(#roundedTabMask);"></div>
 
-        <div class="relative bg-white p-1 shadow-2xl transition-all duration-500 hover:shadow-orange-100"
-            style="clip-path: url(#roundedTabMask);">
+    <img src="{{ asset('heroImage.png') }}" style="margin: 0 auto;max-width: 80%;height: auto;" alt="Transport Truck"
+        class="">
 
-            <img src="{{ asset('heroImage.png') }}" alt="TripKhata Transport Ledger"
-                class="w-full h-auto object-cover block transition-transform duration-700 group-hover:scale-105"
-                style="clip-path: url(#roundedTabMask);">
-        </div>
 
-        <div
-            class="absolute -bottom-4 -right-2 bg-white p-3 rounded-2xl shadow-xl border border-slate-100 hidden md:flex items-center gap-3 z-30">
-            <div class="bg-green-100 p-2 rounded-full text-green-600">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd"
-                        d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 4.946-2.397 9.331-6 11.692-3.603-2.361-6-6.746-6-11.692 0-.68.056-1.35.166-2.001zm8.841 4.993a1 1 0 00-1.414-1.414L8 10.172 7.293 9.465a1 1 0 00-1.414 1.414l1.414 1.414a1 1 0 001.414 0l2.307-2.307z"
-                        clip-rule="evenodd" />
-                </svg>
+
+    <section class="bg-gray-50 py-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <!-- Section Title -->
+            <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-10">
+                TripKhata-এর মূল খাতাসমূহ
+            </h2>
+
+            <!-- Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-white rounded-2xl p-6 shadow hover:shadow-lg transition-shadow duration-300">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                        <!-- Icon -->
+                        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8 16h8M8 12h8m-8-4h8M4 6h16v12H4z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-medium text-gray-900 mb-2">ড্যাশবোর্ড</h3>
+                    <p class="text-gray-500 text-sm">এক নজরে আজকের ট্রিপ, আয়-খরচ ও মোট বকেয়ার সারাংশ দেখুন</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white rounded-2xl p-6 shadow hover:shadow-lg transition-shadow duration-300">
+                    <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+                        <!-- Icon -->
+                        <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 7h18M3 12h18M3 17h18"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-medium text-gray-900 mb-2">ট্র্যাক খাতা</h3>
+                    <p class="text-gray-500 text-sm">প্রতিটি ট্র্যাক অনুযায়ী ট্রিপ, আয় ও খরচের পূর্ণ হিসাব সংরক্ষণ
+                        করুন</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white rounded-2xl p-6 shadow hover:shadow-lg transition-shadow duration-300">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                        <!-- Icon -->
+                        <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7 16h10M5 8h14">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-medium text-gray-900 mb-2">ভেন্টুর খাতা</h3>
+                    <p class="text-gray-500 text-sm">স্বচ্ছ হিসাব রাখুন ভেন্টুর বা গাড়ি অনুযায়ী ভাড়া, পরিবেশ ও
+                        বকেয়ার</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-white rounded-2xl p-6 shadow hover:shadow-lg transition-shadow duration-300">
+                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                        <!-- Icon -->
+                        <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-medium text-gray-900 mb-2">কাস্টমার খাতা</h3>
+                    <p class="text-gray-500 text-sm">কাস্টমার অনুযায়ী ট্রিপ, বিল, আদায় ও বকেয়া সহজে ট্র্যাক করুন</p>
+                </div>
             </div>
-            <div class="text-left leading-tight">
-                <p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">নিরাপদ ডেটা</p>
-                <p class="text-sm font-bold text-slate-800">ক্লাউড ব্যাকআপ</p>
+        </div>
+    </section>
+
+
+
+    <section class="bg-[#121212] text-white py-16 px-6 md:px-12 flex items-center justify-center min-h-screen">
+        <div class="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+            <div class="space-y-8">
+                <div class="flex items-start gap-4">
+                    <div class="bg-red-500 rounded-full p-1 mt-1 shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-bold leading-tight">
+                        কাগজের খাতায় হিসাব রাখলে যেসব সমস্যা হয়
+                    </h2>
+                </div>
+
+                <ul class="space-y-6">
+                    <li class="flex items-center gap-4 group">
+                        <div class="bg-[#2A1A1A] p-3 rounded-xl group-hover:bg-red-900/30 transition-colors">
+                            <svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                        </div>
+                        <p class="text-lg text-gray-300">হিসাব মেলাতে সময় লাগে</p>
+                    </li>
+
+                    <li class="flex items-center gap-4 group">
+                        <div class="bg-[#2A1A1A] p-3 rounded-xl group-hover:bg-red-900/30 transition-colors">
+                            <svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                        </div>
+                        <p class="text-lg text-gray-300">ট্রিপ অনুযায়ী লাভ-লোকসান বোঝা যায় না</p>
+                    </li>
+
+                    <li class="flex items-center gap-4 group">
+                        <div class="bg-[#2A1A1A] p-3 rounded-xl group-hover:bg-red-900/30 transition-colors">
+                            <svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                                </path>
+                            </svg>
+                        </div>
+                        <p class="text-lg text-gray-300">মাস শেষে রিপোর্ট বানানো ঝামেলার</p>
+                    </li>
+
+                    <li class="flex items-center gap-4 group">
+                        <div class="bg-[#2A1A1A] p-3 rounded-xl group-hover:bg-red-900/30 transition-colors">
+                            <svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <p class="text-lg text-gray-300">ড্রাইভার বা পার্টির বকেয়া ভুলে যাওয়ার ঝুঁকি</p>
+                    </li>
+
+                    <li class="flex items-center gap-4 group">
+                        <div class="bg-[#2A1A1A] p-3 rounded-xl group-hover:bg-red-900/30 transition-colors">
+                            <svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                            </svg>
+                        </div>
+                        <p class="text-lg text-gray-300">পুরনো হিসাব খুঁজে পাওয়া কঠিন</p>
+                    </li>
+
+                    <li class="flex items-center gap-4 group">
+                        <div class="bg-[#2A1A1A] p-3 rounded-xl group-hover:bg-red-900/30 transition-colors">
+                            <svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
+                                </path>
+                            </svg>
+                        </div>
+                        <p class="text-lg text-gray-300">পরিবহনের খাতা হারিয়ে গেলে সম্পূর্ণ হিসাব-নিকাশ হারিয়ে যাওয়ার
+                            ঝুঁকি থাকে</p>
+                    </li>
+                </ul>
             </div>
-        </div>
-    </div>
-    </div>
 
-    <div
-        class="absolute -bottom-4 -right-2 bg-white p-3 rounded-2xl shadow-xl border border-slate-100 hidden md:flex items-center gap-3 z-30">
-        <div class="bg-green-100 p-2 rounded-full text-green-600">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path
-                    d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 4.946-2.397 9.331-6 11.692-3.603-2.361-6-6.746-6-11.692 0-.68.056-1.35.166-2.001zm8.841 4.993a1 1 0 00-1.414-1.414L8 10.172 7.293 9.465a1 1 0 00-1.414 1.414l1.414 1.414a1 1 0 001.414 0l2.307-2.307z" />
-            </svg>
-        </div>
-        <div class="text-left leading-tight">
-            <p class="text-[10px] text-slate-500 font-bold uppercase">নিরাপদ ডেটা</p>
-            <p class="text-sm font-bold text-slate-800">ক্লাউড ব্যাকআপ</p>
-        </div>
-    </div>
-    </div>
+            <div class="relative group">
+                <div
+                    class="absolute -inset-1 bg-gradient-to-r from-red-600 to-orange-600 rounded-3xl blur opacity-25 group-hover:opacity-50 transition duration-1000">
+                </div>
+                <div class="relative overflow-hidden rounded-3xl border border-white/10">
+                    <img src="{{ asset('trikhata_section_image_one.jpg') }}" alt="Messy accounts"
+                        class="w-full h-auto object-cover transform transition duration-500 group-hover:scale-105" />
+                </div>
+            </div>
 
-    
-
+        </div>
+    </section>
 
 </body>
 
