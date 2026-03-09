@@ -245,6 +245,104 @@
         </div>
     </section>
 
+        <section class="bg-[#121212] text-white py-16 px-6 md:px-12 flex items-center justify-center min-h-screen">
+        <div class="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+            <div class="space-y-8">
+                <div class="flex items-start gap-4">
+                    <div class="bg-red-500 rounded-full p-1 mt-1 shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-bold leading-tight">
+                        কাগজের খাতায় হিসাব রাখলে যেসব সমস্যা হয়
+                    </h2>
+                </div>
+
+                <ul class="space-y-6">
+                    <li class="flex items-center gap-4 group">
+                        <div class="bg-[#2A1A1A] p-3 rounded-xl group-hover:bg-red-900/30 transition-colors">
+                            <svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                        </div>
+                        <p class="text-lg text-gray-300">হিসাব মেলাতে সময় লাগে</p>
+                    </li>
+
+                    <li class="flex items-center gap-4 group">
+                        <div class="bg-[#2A1A1A] p-3 rounded-xl group-hover:bg-red-900/30 transition-colors">
+                            <svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                        </div>
+                        <p class="text-lg text-gray-300">ট্রিপ অনুযায়ী লাভ-লোকসান বোঝা যায় না</p>
+                    </li>
+
+                    <li class="flex items-center gap-4 group">
+                        <div class="bg-[#2A1A1A] p-3 rounded-xl group-hover:bg-red-900/30 transition-colors">
+                            <svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                                </path>
+                            </svg>
+                        </div>
+                        <p class="text-lg text-gray-300">মাস শেষে রিপোর্ট বানানো ঝামেলার</p>
+                    </li>
+
+                    <li class="flex items-center gap-4 group">
+                        <div class="bg-[#2A1A1A] p-3 rounded-xl group-hover:bg-red-900/30 transition-colors">
+                            <svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <p class="text-lg text-gray-300">ড্রাইভার বা পার্টির বকেয়া ভুলে যাওয়ার ঝুঁকি</p>
+                    </li>
+
+                    <li class="flex items-center gap-4 group">
+                        <div class="bg-[#2A1A1A] p-3 rounded-xl group-hover:bg-red-900/30 transition-colors">
+                            <svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                            </svg>
+                        </div>
+                        <p class="text-lg text-gray-300">পুরনো হিসাব খুঁজে পাওয়া কঠিন</p>
+                    </li>
+
+                    <li class="flex items-center gap-4 group">
+                        <div class="bg-[#2A1A1A] p-3 rounded-xl group-hover:bg-red-900/30 transition-colors">
+                            <svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
+                                </path>
+                            </svg>
+                        </div>
+                        <p class="text-lg text-gray-300">পরিবহনের খাতা হারিয়ে গেলে সম্পূর্ণ হিসাব-নিকাশ হারিয়ে যাওয়ার
+                            ঝুঁকি থাকে</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="relative group">
+                <div
+                    class="absolute -inset-1 bg-gradient-to-r from-red-600 to-orange-600 rounded-3xl blur opacity-25 group-hover:opacity-50 transition duration-1000">
+                </div>
+                <div class="relative overflow-hidden rounded-3xl border border-white/10">
+                    <img src="{{ asset('trikhata_section_image_one.jpg') }}" alt="Messy accounts"
+                        class="w-full h-auto object-cover transform transition duration-500 group-hover:scale-105" />
+                </div>
+            </div>
+
+        </div>
+    </section>
+
 </body>
 
 </html>
