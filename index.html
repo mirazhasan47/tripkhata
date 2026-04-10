@@ -82,36 +82,50 @@
     </nav>
 
 
-    <!-- Mobile Navbar -->
-    <nav class="flex md:hidden items-center justify-between px-4 py-3 border-b border-gray-200">
-
-        <!-- Logo -->
+    <nav class="flex md:hidden items-center justify-between px-4 py-3 border-b border-gray-200 bg-white relative z-50">
         <img src="trip_khata.png" class="w-36" />
 
-        <!-- Hamburger Button -->
-        <button id="menuBtn" class="text-2xl">
+        <button id="menuBtn" class="text-2xl focus:outline-none">
             ☰
         </button>
     </nav>
 
-    <!-- Mobile Menu -->
-    <div id="mobileMenu" class="hidden flex-col px-4 py-4 space-y-4 bg-white border-b border-gray-200 md:hidden">
+    <div id="mobileMenu" class="hidden fixed inset-0 z-50 bg-white flex-col md:hidden overflow-hidden">
 
-        <a href="#" class="block text-gray-700">হোম</a>
-        <a href="#services" class="block text-gray-700">সেবাসমূহ</a>
-        <a href="#packages" class="block text-gray-700">প্যাকেজসমূহ</a>
-        <a href="#contact" class="block text-gray-700">যোগাযোগ</a>
-
-        <!-- Language Toggle -->
-        <div id="langToggleMobile" class="flex items-center w-16 h-8 bg-orange-500 rounded-full p-1 cursor-pointer">
-            <span id="bnBtnMobile" class="bg-white text-orange-600 w-1/2 text-center rounded-full text-xs">বাং</span>
-            <span id="enBtnMobile" class="w-1/2 text-center text-white text-xs">EN</span>
+        <div class="absolute inset-0 opacity-5 pointer-events-none select-none">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Map_of_Bangladesh.svg"
+                class="absolute top-10 right-[-50px] w-64 rotate-12" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Map_of_Bangladesh.svg"
+                class="absolute bottom-20 left-[-50px] w-64 -rotate-12" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Map_of_Bangladesh.svg"
+                class="absolute top-1/2 left-1/4 w-40 opacity-10" />
         </div>
 
-        <!-- Login Button -->
-        <button class="w-full bg-black text-white py-2 rounded-full">
-            লগইন
-        </button>
+        <div class="flex items-center justify-between px-6 py-4 z-10">
+            <img src="trip_khata.png" class="w-36" alt="TripKhata Logo" />
+            <button id="closeBtn" class="text-3xl text-gray-800 focus:outline-none">&times;</button>
+        </div>
+
+        <div class="flex-1 flex flex-col items-center justify-start pt-12 space-y-8 z-10">
+            <a href="#" class="text-lg font-semibold text-gray-800">হোম</a>
+            <a href="#services" class="text-lg font-semibold text-gray-800">সেবাসমূহ</a>
+            <a href="#packages" class="text-lg font-semibold text-gray-800">প্যাকেজসমূহ</a>
+            <a href="#brands" class="text-lg font-semibold text-gray-800">ব্র্যান্ডসমূহ</a>
+            <a href="#contact" class="text-lg font-semibold text-gray-800">যোগাযোগ</a>
+
+            <div id="langToggleMobile"
+                class="flex items-center w-[85px] h-10 bg-[#FF7000] rounded-full p-1 cursor-pointer mt-4">
+                <span id="bnBtnMobile"
+                    class="bg-white text-[#FF7000] w-1/2 h-full flex items-center justify-center rounded-full text-sm font-bold">বাং</span>
+                <span id="enBtnMobile"
+                    class="w-1/2 h-full flex items-center justify-center text-white text-sm font-bold">EN</span>
+            </div>
+
+            <button
+                class="px-10 py-3 bg-[#2D2D2D] text-white rounded-full text-lg font-medium shadow-lg active:scale-95 transition-transform">
+                লগইন
+            </button>
+        </div>
     </div>
 
     <script>
@@ -169,13 +183,13 @@
             <div class="flex flex-row items-center justify-center gap-2 sm:gap-4">
 
                 <button
-                    class="text-white text-[10px] sm:text-lg font-bold px-3 sm:px-10 py-2.5 sm:py-4 rounded-full shadow-lg whitespace-nowrap transition-all hover:opacity-90"
+                    class="text-white text-[11px] sm:text-lg font-bold px-5 sm:px-10 py-[12px] sm:py-4 rounded-full shadow-lg whitespace-nowrap transition-all hover:opacity-90"
                     style="background: linear-gradient(180deg, #FF5A00 0%, #FF7700 100%);">
                     ফ্রি ব্যবহার শুরু করুন
                 </button>
 
                 <button
-                    class="bg-[#27272a] text-white text-[10px] sm:text-lg font-bold px-3 sm:px-10 py-2.5 sm:py-4 rounded-full hover:bg-slate-800 transition-all whitespace-nowrap">
+                    class="bg-[#27272a] text-white text-[11px] sm:text-lg font-bold px-5 sm:px-10 py-[12px] sm:py-4 rounded-full hover:bg-slate-800 transition-all whitespace-nowrap">
                     লাইভ ডেমো দেখুন
                 </button>
 
@@ -379,7 +393,7 @@
     </section>
 
 
-    <section class="bg-[#FFE9CB] border-black min-h-[500px] flex items-center justify-center p-6 md:p-12">
+    <section class="bg-[#FFE9CB] border-black min-h-[500px] flex items-center justify-center p-3 md:p-12">
         <div class="max-w-6xl w-full flex flex-col md:flex-row items-center gap-10 md:gap-20">
 
             <div class="w-full md:w-1/2">
@@ -398,54 +412,53 @@
                         <div class="bg-black p-1 rounded-full inline-block">
                             <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
-                                    d="M5 13l4 4L19 7">
-                                </path>
+                                    d="M5 13l4 4L19 7"></path>
                             </svg>
                         </div>
                     </div>
-                    <h2 class="text-[13px] md:text-3xl font-bold">সমাধান একটাই – TripKhata</h2>
+                    <h2 class="text-[20px] md:text-3xl font-bold">সমাধান একটাই – TripKhata</h2>
                 </div>
 
-                <p class="text-[10px] md:text-lg leading-relaxed opacity-90 md:leading-[29.25px]">
-                    TripKhata আপনার ব্যবসার সব হিসাব রাখে এক জায়গায়, যেন আপনি খাতার মতো সহজে কিন্তু ডিজিটাল সুবিধায় কাজ
-                    করতে পারেন।
+                <p class="text-[20px] md:text-lg leading-relaxed opacity-90 md:leading-[29.25px]">
+                    TripKhata আপনার ব্যবসার সব হিসাব রাখে এক জায়গায়, যেন আপনি খাতার মতো সহজে কিন্তু ডিজিটাল সুবিধায়
+                    কাজ করতে পারেন।
                 </p>
 
                 <ul class="space-y-4 pt-4">
                     <li class="flex items-center gap-4">
-                        <div class="bg-[#FFE9CB] border-black p-2 rounded-lg">
+                        <div class="bg-[#FFE9CB] border-black p-2 pl-0 rounded-lg">
                             <span class="w-10 h-10 block text-center">
                                 <img src="truck_image_one.png" alt="Income and Expense">
                             </span>
                         </div>
-                        <span class="text-[10px] md:text-xl font-medium">আয় ও খরচ আলাদা হিসাব</span>
+                        <span class="text-[18px] md:text-xl font-medium">আয় ও খরচ আলাদা হিসাব</span>
                     </li>
 
                     <li class="flex items-center gap-4">
-                        <div class="bg-[#FFE9CB] border-black p-2 rounded-lg">
+                        <div class="bg-[#FFE9CB] border-black p-2 pl-0 rounded-lg">
                             <span class="w-10 h-10 block text-center">
                                 <img src="truck_image_two.png" alt="Report">
                             </span>
                         </div>
-                        <span class="text-[10px] md:text-xl font-medium">যেকোনো সময় রিপোর্ট দেখুন</span>
+                        <span class="text-[18px] md:text-xl font-medium">যেকোনো সময় রিপোর্ট দেখুন</span>
                     </li>
 
                     <li class="flex items-center gap-4">
-                        <div class="bg-[#FFE9CB] border-black p-2 rounded-lg">
+                        <div class="bg-[#FFE9CB] border-black p-2 pl-0 rounded-lg">
                             <span class="w-10 h-10 block text-center">
-                                <img src="truck_image_three.png" alt="Income and Expense">
+                                <img src="truck_image_three.png" alt="Trip Account">
                             </span>
                         </div>
-                        <span class="text-[10px] md:text-xl font-medium">ট্রিপ অনুযায়ী হিসাব</span>
+                        <span class="text-[18px] md:text-xl font-medium">ট্রিপ অনুযায়ী হিসাব</span>
                     </li>
 
                     <li class="flex items-center gap-4">
-                        <div class="bg-[#FFE9CB] border-black p-2 rounded-lg">
+                        <div class="bg-[#FFE9CB] border-black p-2 pl-0 rounded-lg">
                             <span class="w-10 h-10 block text-center">
-                                <img src="truck_image_four.png" alt="Income and Expense">
+                                <img src="truck_image_four.png" alt="Tracking">
                             </span>
                         </div>
-                        <span class="text-[10px] md:text-xl font-medium">বকেয়া ও পরিশোধ ট্র্যাক</span>
+                        <span class="text-[18px] md:text-xl font-medium">বকেয়া ও পরিশোধ ট্র্যাক</span>
                     </li>
                 </ul>
             </div>
