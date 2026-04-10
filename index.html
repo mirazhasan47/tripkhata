@@ -17,23 +17,41 @@
 
 <body class="bg-slate-50 font-sans text-slate-900">
 
-    <nav class="hidden flex md:flex items-center justify-between px-6 py-4 max-w-7xl mx-auto border-b border-gray-100"
-        style="    /* width: 90%; */
+
+
+    <div style="
+    background-image: url('Vector_photo.png'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    min-height: 100vh; /* This ensures it covers the full screen height */
+    width: 100%;
+">
+        <nav class="flex md:hidden items-center justify-between px-4 py-3 border-b relative z-50">
+            <img src="trip_khata.png" class="w-36" />
+
+            <button id="menuBtn" class="text-2xl focus:outline-none">
+                ☰
+            </button>
+        </nav>
+
+        <nav class="hidden flex md:flex items-center justify-between px-6 py-4 max-w-7xl mx-auto border-b border-gray-100"
+            style="    /* width: 90%; */
     border-bottom: 1px solid #EAEAEA;
     padding-right: 10%;
     padding-left: 10%;">
-        <div class="flex items-center gap-2">
-            <img src="trip_khata.png" style="width: 200px!important;" />
-        </div>
+            <div class="flex items-center gap-2">
+                <img src="trip_khata.png" style="width: 200px!important;" />
+            </div>
 
-        <div class="hidden md:flex items-center space-x-8 text-slate-600 font-medium">
-            <a href="#" class="hover:text-orange-600 transition">হোম</a>
-            <a href="#services" class="hover:text-orange-600 transition">সেবাসমূহ</a>
-            <a href="#packages" class="hover:text-orange-600 transition">প্যাকেজসমূহ</a>
-            <a href="#contact" class="hover:text-orange-600 transition">যোগাযোগ</a>
+            <div class="hidden md:flex items-center space-x-8 text-slate-600 font-medium">
+                <a href="#" class="hover:text-orange-600 transition">হোম</a>
+                <a href="#services" class="hover:text-orange-600 transition">সেবাসমূহ</a>
+                <a href="#packages" class="hover:text-orange-600 transition">প্যাকেজসমূহ</a>
+                <a href="#contact" class="hover:text-orange-600 transition">যোগাযোগ</a>
 
-            <div id="langToggle" class="flex items-center justify-between text-xs text-white font-bold cursor-pointer"
-                style="
+                <div id="langToggle"
+                    class="flex items-center justify-between text-xs text-white font-bold cursor-pointer" style="
         width: 56px;
         height: 30px;
         background: linear-gradient(0deg, #FF5A00 0%, #FF7700 100%);
@@ -43,52 +61,87 @@
         padding: 0 4px;
      ">
 
-                <span id="bnBtn"
-                    class="bg-white text-orange-600 rounded-full w-8 h-6 flex items-center justify-center text-center">
-                    বাং
-                </span>
+                    <span id="bnBtn"
+                        class="bg-white text-orange-600 rounded-full w-8 h-6 flex items-center justify-center text-center">
+                        বাং
+                    </span>
 
-                <span id="enBtn" class="w-8 h-6 flex items-center justify-center text-center">
-                    EN
-                </span>
+                    <span id="enBtn" class="w-8 h-6 flex items-center justify-center text-center">
+                        EN
+                    </span>
+                </div>
+
+                <script>
+                    let currentLang = "bn";
+
+                    document.getElementById("langToggle").addEventListener("click", function () {
+
+                        let bnBtn = document.getElementById("bnBtn");
+                        let enBtn = document.getElementById("enBtn");
+
+                        if (currentLang === "bn") {
+                            currentLang = "en";
+
+                            bnBtn.classList.remove("bg-white", "text-orange-600");
+                            enBtn.classList.add("bg-white", "text-orange-600", "rounded-full");
+                        } else {
+                            currentLang = "bn";
+
+                            enBtn.classList.remove("bg-white", "text-orange-600");
+                            bnBtn.classList.add("bg-white", "text-orange-600");
+                        }
+                    });
+                </script>
             </div>
 
-            <script>
-                let currentLang = "bn";
+            <button
+                class="bg-[#27272a] text-white px-8 py-2.5 rounded-full font-semibold hover:bg-slate-800 transition">
+                লগইন
+            </button>
+        </nav>
 
-                document.getElementById("langToggle").addEventListener("click", function () {
+        <section class="relative py-14 md:py-20 lg:py-24 px-1 sm:px-1 overflow-hidden bg-transparent">
+            <div class="absolute inset-0 z-0 opacity-[0.05] pointer-events-none"></div>
 
-                    let bnBtn = document.getElementById("bnBtn");
-                    let enBtn = document.getElementById("enBtn");
+            <div class="relative z-10 max-w-5xl mx-auto text-center">
 
-                    if (currentLang === "bn") {
-                        currentLang = "en";
+                <!-- Heading -->
+                <h1 class="font-archivo font-medium tracking-tight text-[#1e293b] text-center">
+                    <span class="block text-[27px] lg:text-[80px] leading-tight">
+                        ট্রিপ, ভাড়া ও হিসাব রাখুন
+                    </span>
 
-                        bnBtn.classList.remove("bg-white", "text-orange-600");
-                        enBtn.classList.add("bg-white", "text-orange-600", "rounded-full");
-                    } else {
-                        currentLang = "bn";
+                    <span class="block text-[18px] lg:text-[50px] mt-1 lg:mt-2 text-slate-600">
+                        একদম খাতার মতো – ডিজিটালভাবে
+                    </span>
+                </h1>
 
-                        enBtn.classList.remove("bg-white", "text-orange-600");
-                        bnBtn.classList.add("bg-white", "text-orange-600");
-                    }
-                });
-            </script>
-        </div>
+                <!-- Description -->
+                <p
+                    class="text-sm sm:text-base md:text-xl mt-4 md:mt-5 text-slate-600 max-w-3xl mx-auto leading-relaxed mb-8 md:mb-12 px-2">
+                    TripKhata হলো পরিবহন ব্যবসার জন্য একটি সহজ ডিজিটাল খাতা, যার মাধ্যমে ট্রাক, বাস ও রেন্ট-এ-কার
+                    ব্যবসার
+                    দৈনিক ট্রিপ, আয়-খরচ ও বকেয়া হিসাব রাখা যায় ঝামেলা ছাড়াই।
+                </p>
 
-        <button class="bg-[#27272a] text-white px-8 py-2.5 rounded-full font-semibold hover:bg-slate-800 transition">
-            লগইন
-        </button>
-    </nav>
+                <!-- Buttons -->
+                <div class="flex flex-row items-center justify-center gap-2 sm:gap-4">
 
+                    <button
+                        class="w-[171px] h-[44px] sm:w-auto sm:h-auto text-white text-[11px] sm:text-lg font-bold px-5 sm:px-10 py-0 sm:py-4 rounded-full shadow-lg whitespace-nowrap transition-all hover:opacity-90 flex items-center justify-center"
+                        style="background: linear-gradient(180deg, #FF5A00 0%, #FF7700 100%);">
+                        ফ্রি ব্যবহার শুরু করুন
+                    </button>
 
-    <nav class="flex md:hidden items-center justify-between px-4 py-3 border-b border-gray-200 bg-white relative z-50">
-        <img src="trip_khata.png" class="w-36" />
+                    <button
+                        class="w-[171px] h-[44px] sm:w-auto sm:h-auto bg-[#27272a] text-white text-[11px] sm:text-lg font-bold px-5 sm:px-10 py-0 sm:py-4 rounded-full hover:bg-slate-800 transition-all whitespace-nowrap flex items-center justify-center">
+                        লাইভ ডেমো দেখুন
+                    </button>
 
-        <button id="menuBtn" class="text-2xl focus:outline-none">
-            ☰
-        </button>
-    </nav>
+                </div>
+            </div>
+        </section>
+    </div>
 
     <div id="mobileMenu" class="hidden fixed inset-0 z-50 bg-white flex-col md:hidden overflow-hidden">
 
@@ -222,55 +275,12 @@
         });
     </script>
 
-    <section class="relative py-14 md:py-20 lg:py-24 px-1 sm:px-1 overflow-hidden bg-white"
-        style="background-image: url('Vector_photo.png'); background-size: cover; background-position: center;">
-        <div class="absolute inset-0 z-0 opacity-[0.05] pointer-events-none"></div>
-
-        <div class="relative z-10 max-w-5xl mx-auto text-center">
-
-            <!-- Heading -->
-            <h1 class="font-archivo font-medium tracking-tight text-[#1e293b] text-center">
-                <span class="block text-[27px] lg:text-[80px] leading-tight">
-                    ট্রিপ, ভাড়া ও হিসাব রাখুন
-                </span>
-
-                <span class="block text-[18px] lg:text-[50px] mt-1 lg:mt-2 text-slate-600">
-                    একদম খাতার মতো – ডিজিটালভাবে
-                </span>
-            </h1>
-
-            <!-- Description -->
-            <p
-                class="text-sm sm:text-base md:text-xl mt-4 md:mt-5 text-slate-600 max-w-3xl mx-auto leading-relaxed mb-8 md:mb-12 px-2">
-                TripKhata হলো পরিবহন ব্যবসার জন্য একটি সহজ ডিজিটাল খাতা, যার মাধ্যমে ট্রাক, বাস ও রেন্ট-এ-কার ব্যবসার
-                দৈনিক ট্রিপ, আয়-খরচ ও বকেয়া হিসাব রাখা যায় ঝামেলা ছাড়াই।
-            </p>
-
-            <!-- Buttons -->
-            <div class="flex flex-row items-center justify-center gap-2 sm:gap-4">
-
-                <button
-                    class="text-white text-[11px] sm:text-lg font-bold px-5 sm:px-10 py-[12px] sm:py-4 rounded-full shadow-lg whitespace-nowrap transition-all hover:opacity-90"
-                    style="background: linear-gradient(180deg, #FF5A00 0%, #FF7700 100%);">
-                    ফ্রি ব্যবহার শুরু করুন
-                </button>
-
-                <button
-                    class="bg-[#27272a] text-white text-[11px] sm:text-lg font-bold px-5 sm:px-10 py-[12px] sm:py-4 rounded-full hover:bg-slate-800 transition-all whitespace-nowrap">
-                    লাইভ ডেমো দেখুন
-                </button>
-
-            </div>
-        </div>
-    </section>
 
 
 
-<img 
-    src="heroImage.jpeg" 
-    alt="Transport Truck" 
-    class="mx-auto w-full max-w-[95%] sm:max-w-[80%] h-[180px] md:h-auto object-cover rounded-xl"
->
+
+    <img src="heroImage.jpeg" alt="Transport Truck"
+        class="mx-auto w-full max-w-[100%] h-[180px] md:h-auto xl:w-[1300px] xl:h-[468px] object-cover rounded-xl">
     <section id="services" class="bg-[#F5F0EAB8] py-10 mt-[30px]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16">
 
@@ -538,7 +548,7 @@
 
 
     <section class="bg-gray-50 py-16 px-6">
-        <div class="max-w-7xl mx-auto">
+        <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-5xl font-extrabold text-gray-800 mb-4">
                     TripKhata যেভাবে কাজ করে – মাত্র ৩ ধাপে
@@ -558,7 +568,7 @@
                     <div
                         class="relative bg-white p-8 rounded-3xl border border-gray-100 shadow-sm flex flex-col h-[497px]">
                         <div
-                            class="absolute -top-5 left-8 bg-[#ff7b25] text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl shadow-lg ring-4 ring-white">
+                            class="absolute -top-5 left-8 bg-[#FF6900] text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl  ring-4 ring-white">
                             01
                         </div>
 
@@ -584,7 +594,7 @@
                     <div
                         class="relative bg-white p-8 rounded-3xl border border-gray-100 shadow-sm flex flex-col h-[497px]">
                         <div
-                            class="absolute -top-5 left-8 bg-[#ff7b25] text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl shadow-lg ring-4 ring-white">
+                            class="absolute -top-5 left-8 bg-[#FF6900] text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl  ring-4 ring-white">
                             02
                         </div>
 
@@ -612,7 +622,7 @@
                     <div
                         class="relative bg-white p-8 rounded-3xl border border-gray-100 shadow-sm flex flex-col h-[497px]">
                         <div
-                            class="absolute -top-5 left-8 bg-[#ff7b25] text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl shadow-lg ring-4 ring-white">
+                            class="absolute -top-5 left-8 bg-[#FF6900] text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl  ring-4 ring-white">
                             03
                         </div>
 
@@ -640,7 +650,7 @@
 
                 <!-- Arrow 1 -->
                 <div class="hidden lg:flex absolute left-[29.5%] top-1/4 -translate-y-1/2 z-10">
-                    <div class="bg-[#ff7b25] p-2 rounded-full shadow-md text-white">
+                    <div class="bg-[#FF6900] p-2 rounded-full shadow-md text-white">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7" />
                         </svg>
@@ -649,7 +659,7 @@
 
                 <!-- Arrow 2 -->
                 <div class="hidden lg:flex absolute left-[64.5%] top-1/4 -translate-y-1/2 z-10">
-                    <div class="bg-[#ff7b25] p-2 rounded-full shadow-md text-white">
+                    <div class="bg-[#FF6900] p-2 rounded-full shadow-md text-white">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7" />
                         </svg>
@@ -659,52 +669,48 @@
             </div>
 
             <div class="mt-16 text-center">
-                <button
-                    class="bg-[#2a2d2e] text-white px-10 py-4 rounded-full text-lg font-bold hover:bg-black transition-all">
-                    লাইভ ডেমো দেখুন
-                </button>
+                <div class="flex justify-center items-center w-full">
+
+                    <button
+                        class="w-[187px] h-[62px] bg-[#2a2d2e] text-white text-[15px] font-bold rounded-full hover:bg-black transition-all flex items-center justify-center text-center leading-tight">
+                        লাইভ ডেমো দেখুন
+                    </button>
+
+                </div>
             </div>
         </div>
     </section>
 
 
-    <section class="w-[92%] mx-auto rounded-[16px] font-sans overflow-hidden">
+    <section class="w-[92%] max-w-6xl mx-auto rounded-[16px] overflow-hidden font-sans border border-transparent">
 
-        <!-- First Section -->
-        <div class="grid grid-cols-1 md:grid-cols-2">
+        <div class="grid grid-cols-1 md:grid-cols-2 w-full">
 
-            <!-- Image -->
-            <div class="h-[260px] md:h-[400px] overflow-hidden">
+            <div class="h-[260px] md:h-[400px]">
                 <img src="tripkhata_section_image_three.jpeg" class="w-full h-full object-cover">
             </div>
 
-            <!-- Text -->
             <div class="bg-[#F5E6CC] py-6 px-5 md:px-20 md:h-[400px] flex flex-col justify-center">
                 <h2 class="text-[20px] md:text-4xl font-extrabold text-gray-900 mb-4 md:mb-8">
                     কেন TripKhata ব্যবহার করবেন?
                 </h2>
-
-                <ul class="space-y-2 md:space-y-4">
+                <ul class="space-y-[20px] md:space-y-[20px]">
                     <li class="flex items-start gap-2 text-[14px] md:text-xl text-gray-800">
                         <span class="w-1.5 h-1.5 mt-2 bg-gray-900 rounded-full"></span>
                         বাংলাদেশি পরিবহন ব্যবসার জন্য তৈরি
                     </li>
-
                     <li class="flex items-start gap-2 text-[14px] md:text-xl text-gray-800">
                         <span class="w-1.5 h-1.5 mt-2 bg-gray-900 rounded-full"></span>
-                        মোবাইল ও ওয়েব – দুটাতেই কাজ করে
+                        মোবাইল ও ওয়েব – দুটোতেই কাজ করে
                     </li>
-
                     <li class="flex items-start gap-2 text-[14px] md:text-xl text-gray-800">
                         <span class="w-1.5 h-1.5 mt-2 bg-gray-900 rounded-full"></span>
-                        খাতার মতো সহজ ব্যবহার
+                        বাংলাদেশি পরিবহন ব্যবসার জন্য তৈরি
                     </li>
-
                     <li class="flex items-start gap-2 text-[14px] md:text-xl text-gray-800">
                         <span class="w-1.5 h-1.5 mt-2 bg-gray-900 rounded-full"></span>
                         সময় বাঁচায়, ভুল কমায়
                     </li>
-
                     <li class="flex items-start gap-2 text-[14px] md:text-xl text-gray-800">
                         <span class="w-1.5 h-1.5 mt-2 bg-gray-900 rounded-full"></span>
                         নিরাপদ ক্লাউড ডেটা
@@ -713,46 +719,38 @@
             </div>
         </div>
 
+        <div class="grid grid-cols-1 md:grid-cols-2 w-full">
 
-        <!-- Second Section -->
-        <div class="grid grid-cols-1 md:grid-cols-2">
-
-            <!-- Text -->
             <div class="bg-[#222222] py-6 px-5 md:px-20 md:h-[400px] flex flex-col justify-center order-2 md:order-1">
                 <h2 class="text-[20px] md:text-4xl font-extrabold text-white mb-4 md:mb-8">
                     TripKhata যাদের জন্য উপযোগী
                 </h2>
-
-                <ul class="space-y-2 md:space-y-4 text-white">
+                <ul class="space-y-[20px] md:space-y-[20px] text-white">
                     <li class="flex items-start gap-2 text-[14px] md:text-xl">
                         <span class="w-1.5 h-1.5 mt-2 bg-white rounded-full"></span>
                         ট্রাক ও কাভার্ড ভ্যান মালিক
                     </li>
-
                     <li class="flex items-start gap-2 text-[14px] md:text-xl">
                         <span class="w-1.5 h-1.5 mt-2 bg-white rounded-full"></span>
                         কর্পোরেট পরিবহন সেবা
                     </li>
-
-                    <li class="flex items-start gap-2 text-[14px] md:text-xl">
-                        <span class="w-1.5 h-1.5 mt-2 bg-white rounded-full"></span>
-                        লজিস্টিক কোম্পানি
-                    </li>
-
                     <li class="flex items-start gap-2 text-[14px] md:text-xl">
                         <span class="w-1.5 h-1.5 mt-2 bg-white rounded-full"></span>
                         বাস ও রুট অপারেটর
                     </li>
-
+                    <li class="flex items-start gap-2 text-[14px] md:text-xl">
+                        <span class="w-1.5 h-1.5 mt-2 bg-white rounded-full"></span>
+                         লজিস্টিক কোম্পানি
+                    </li>
                     <li class="flex items-start gap-2 text-[14px] md:text-xl">
                         <span class="w-1.5 h-1.5 mt-2 bg-white rounded-full"></span>
                         রেন্ট-এ-কার ব্যবসা
                     </li>
+
                 </ul>
             </div>
 
-            <!-- Image -->
-            <div class="h-[260px] md:h-[400px] overflow-hidden order-1 md:order-2">
+            <div class="h-[260px] md:h-[400px] order-1 md:order-2">
                 <img src="tripkhata_section_image_four.jpg" class="w-full h-full object-cover">
             </div>
 
@@ -762,13 +760,13 @@
 
 
     <section id="packages" class="bg-white py-20 px-6 hidden md:block">
-        <div class="max-w-7xl mx-auto">
+        <div class="max-w-6xl mx-auto">
 
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-extrabold text-gray-800 mb-6">
                     সহজ ও সাশ্রয়ী প্যাকেজ
                 </h2>
-                <p class="text-gray-600 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+                <p class="text-gray-600 text-lg md:text-[20px] max-w-3xl mx-auto leading-relaxed">
                     আপনার ব্যবসার জন্য নিখুঁত পরিকল্পনা চয়ন করুন। সমস্ত প্ল্যানে কোনো ক্রেডিট কার্ডের
                     প্রয়োজন ছাড়াই ১৪ দিনের বিনামূল্যে ট্রায়াল অন্তর্ভুক্ত।
                 </p>
@@ -776,154 +774,161 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
 
-                <!-- Starter -->
                 <div class="group border border-gray-200 rounded-[2rem] p-8 flex flex-col bg-white 
-                        transition duration-300 relative overflow-hidden">
-                    <!-- Gradient overlay -->
-                    <div class="absolute inset-0 bg-gradient-to-b from-[#FF5A00] to-[#FF7700] opacity-0 
-                            group-hover:opacity-100 transition duration-300 rounded-[2rem] z-0"></div>
+            transition duration-300 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-[linear-gradient(180deg,_#FF5A00_0%,_#FF7700_100%)] opacity-0 
+                group-hover:opacity-100 transition duration-300 rounded-[2rem] z-0"></div>
 
                     <div class="relative z-10 flex flex-col h-full">
-                        <h3 class="text-2xl font-bold text-gray-800 group-hover:text-white">Starter</h3>
-                        <p class="text-gray-500 text-sm mb-6 group-hover:text-white">ছোট ব্যবসার জন্য</p>
+                        <h3 class="text-[20px] md:text-2xl font-bold text-gray-800 group-hover:text-white">Starter</h3>
+                        <p class="text-[15px] md:text-sm text-gray-500 mb-6 group-hover:text-white">ছোট ব্যবসার জন্য</p>
 
-                        <div class="text-3xl font-bold mb-8 text-gray-800 group-hover:text-white">
+                        <div class="text-[28px] md:text-3xl font-bold mb-8 text-gray-800 group-hover:text-white">
                             TK ৯৯৯
-                            <span class="text-gray-500 text-lg font-normal group-hover:text-white">/মাস</span>
+                            <span
+                                class="text-[15px] md:text-lg font-normal text-gray-500 group-hover:text-white">/মাস</span>
                         </div>
 
                         <ul class="space-y-4 mb-10 flex-grow">
-                            <li class="flex gap-3 text-gray-700 group-hover:text-white"><span>✓</span> 5টি পর্যন্ত
-                                যানবাহন</li>
-                            <li class="flex gap-3 text-gray-700 group-hover:text-white"><span>✓</span> বেসিক ট্রিপ
-                                ট্র্যাকিং</li>
-                            <li class="flex gap-3 text-gray-700 group-hover:text-white"><span>✓</span> ডিজিটাল রেকর্ড
-                                ব্যবস্থাপনা</li>
-                            <li class="flex gap-3 text-gray-700 group-hover:text-white"><span>✓</span> মোবাইল অ্যাপ
-                                অ্যাক্সেস</li>
-                            <li class="flex gap-3 text-gray-700 group-hover:text-white"><span>✓</span> 30 দিনের ডেটা
-                                ইতিহাস</li>
+                            <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
+                                <span>✓</span> 5টি পর্যন্ত যানবাহন
+                            </li>
+                            <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
+                                <span>✓</span> বেসিক ট্রিপ ট্র্যাকিং
+                            </li>
+                            <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
+                                <span>✓</span> ডিজিটাল রেকর্ড ব্যবস্থাপনা
+                            </li>
+                            <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
+                                <span>✓</span> মোবাইল অ্যাপ অ্যাক্সেস
+                            </li>
                         </ul>
 
-                        <button class="w-full bg-[#ff6b00] text-white py-4 rounded-full font-bold text-lg 
-                                   group-hover:bg-white group-hover:text-[#ff6b00] transition">
+                        <button class="w-full text-white py-4 rounded-full font-bold text-lg transition
+                           bg-[linear-gradient(180deg,_#FF5A00_0%,_#FF7700_100%)] 
+                           group-hover:bg-none group-hover:bg-white group-hover:text-[#ff6b00]">
                             যোগাযোগ করুন
                         </button>
                     </div>
                 </div>
 
-                <!-- Business -->
                 <div class="group relative border border-gray-200 rounded-[2rem] p-8 flex flex-col bg-white 
-                        transition duration-300">
-                    <!-- Gradient overlay -->
-                    <div class="absolute inset-0 bg-gradient-to-b from-[#FF5A00] to-[#FF7700] opacity-0 
-                            group-hover:opacity-100 transition duration-300 rounded-[2rem] z-0"></div>
+            transition duration-300 overflow-hidden">
+                    <div class="absolute inset-0 bg-[linear-gradient(180deg,_#FF5A00_0%,_#FF7700_100%)] opacity-0 
+                group-hover:opacity-100 transition duration-300 rounded-[2rem] z-0"></div>
 
-                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 
-                            bg-black text-white text-xs py-1 px-4 rounded-full font-bold">
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 z-20
+                bg-black text-white text-[12px] py-1 px-4 rounded-full font-bold whitespace-nowrap">
                         সবচেয়ে জনপ্রিয়
                     </div>
 
                     <div class="relative z-10 flex flex-col h-full">
-                        <h3 class="text-2xl font-bold text-gray-800 group-hover:text-white">Business</h3>
-                        <p class="text-gray-500 text-sm mb-6 group-hover:text-white">নিয়মিত ট্রিপের জন্য</p>
+                        <h3 class="text-[20px] md:text-2xl font-bold text-gray-800 group-hover:text-white">Business</h3>
+                        <p class="text-[15px] md:text-sm text-gray-500 mb-6 group-hover:text-white">নিয়মিত ট্রিপের জন্য
+                        </p>
 
-                        <div class="text-3xl font-bold mb-8 text-gray-800 group-hover:text-white">
+                        <div class="text-[28px] md:text-3xl font-bold mb-8 text-gray-800 group-hover:text-white">
                             TK ২৪৯৯
-                            <span class="text-gray-500 text-lg font-normal group-hover:text-white">/মাস</span>
+                            <span
+                                class="text-[15px] md:text-lg font-normal text-gray-500 group-hover:text-white">/মাস</span>
                         </div>
 
                         <ul class="space-y-4 mb-10 flex-grow">
-                            <li class="flex gap-3 text-gray-700 group-hover:text-white"><span>✓</span> 25টি পর্যন্ত
-                                যানবাহন</li>
-                            <li class="flex gap-3 text-gray-700 group-hover:text-white"><span>✓</span> রিয়েল-টাইম
-                                জিপিএস ট্র্যাকিং</li>
-                            <li class="flex gap-3 text-gray-700 group-hover:text-white"><span>✓</span> উন্নত বিশ্লেষণ
-                                এবং প্রতিবেদন</li>
-                            <li class="flex gap-3 text-gray-700 group-hover:text-white"><span>✓</span> রুট অপটিমাইজেশন
+                            <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
+                                <span>✓</span> 25টি পর্যন্ত যানবাহন
                             </li>
-                            <li class="flex gap-3 text-gray-700 group-hover:text-white"><span>✓</span> অগ্রাধিকার সমর্থন
+                            <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
+                                <span>✓</span> রিয়েল-টাইম জিপিএস
                             </li>
-                            <li class="flex gap-3 text-gray-700 group-hover:text-white"><span>✓</span> সীমাহীন ডেটা
-                                ইতিহাস</li>
-                            <li class="flex gap-3 text-gray-700 group-hover:text-white"><span>✓</span> API অ্যাক্সেস
+                            <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
+                                <span>✓</span> উন্নত বিশ্লেষণ
                             </li>
-                            <li class="flex gap-3 text-gray-700 group-hover:text-white"><span>✓</span> মাল্টি-ইউজার
-                                অ্যাক্সেস</li>
+                            <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
+                                <span>✓</span> অগ্রাধিকার সমর্থন
+                            </li>
                         </ul>
 
-                        <button class="w-full bg-[#ff6b00] text-white py-4 rounded-full font-bold text-lg 
-                                   group-hover:bg-white group-hover:text-[#ff6b00] transition">
+                        <button class="w-full text-white py-4 rounded-full font-bold text-lg transition
+                           bg-[linear-gradient(180deg,_#FF5A00_0%,_#FF7700_100%)] 
+                           group-hover:bg-none group-hover:bg-white group-hover:text-[#ff6b00]">
                             যোগাযোগ করুন
                         </button>
                     </div>
                 </div>
 
-                <!-- Enterprise -->
                 <div class="group border border-gray-200 rounded-[2rem] p-8 flex flex-col bg-white 
-                        transition duration-300 relative overflow-hidden">
-                    <!-- Gradient overlay -->
-                    <div class="absolute inset-0 bg-gradient-to-b from-[#FF5A00] to-[#FF7700] opacity-0 
-                            group-hover:opacity-100 transition duration-300 rounded-[2rem] z-0"></div>
+            transition duration-300 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-[linear-gradient(180deg,_#FF5A00_0%,_#FF7700_100%)] opacity-0 
+                group-hover:opacity-100 transition duration-300 rounded-[2rem] z-0"></div>
 
                     <div class="relative z-10 flex flex-col h-full">
-                        <h3 class="text-2xl font-bold text-gray-800 group-hover:text-white">Enterprise</h3>
-                        <p class="text-gray-500 text-sm mb-6 group-hover:text-white">বড় ফ্লিটের জন্য</p>
+                        <h3 class="text-[20px] md:text-2xl font-bold text-gray-800 group-hover:text-white">Enterprise
+                        </h3>
+                        <p class="text-[15px] md:text-sm text-gray-500 mb-6 group-hover:text-white">বড় ফ্লিটের জন্য</p>
 
-                        <div class="text-3xl font-bold mb-8 text-gray-800 group-hover:text-white">
+                        <div class="text-[28px] md:text-3xl font-bold mb-8 text-gray-800 group-hover:text-white">
                             TK ৪৯৯৯
-                            <span class="text-gray-500 text-lg font-normal group-hover:text-white">/মাস</span>
+                            <span
+                                class="text-[15px] md:text-lg font-normal text-gray-500 group-hover:text-white">/মাস</span>
                         </div>
 
                         <ul class="space-y-4 mb-10 flex-grow">
-                            <li class="flex gap-3 text-gray-700 group-hover:text-white"><span>✓</span> সীমাহীন যানবাহন
+                            <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
+                                <span>✓</span> সীমাহীন যানবাহন
                             </li>
-                            <li class="flex gap-3 text-gray-700 group-hover:text-white"><span>✓</span> ডেডিকেটেড
-                                অ্যাকাউন্ট ম্যানেজার</li>
-                            <li class="flex gap-3 text-gray-700 group-hover:text-white"><span>✓</span> কাস্টম
-                                ইন্টিগ্রেশন</li>
-                            <li class="flex gap-3 text-gray-700 group-hover:text-white"><span>✓</span> হোয়াইট-লেবেল
-                                অপশন</li>
-                            <li class="flex gap-3 text-gray-700 group-hover:text-white"><span>✓</span> উন্নত নিরাপত্তা
-                                বৈশিষ্ট্য</li>
+                            <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
+                                <span>✓</span> অ্যাকাউন্ট ম্যানেজার
+                            </li>
+                            <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
+                                <span>✓</span> কাস্টম ইন্টিগ্রেশন
+                            </li>
+                            <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
+                                <span>✓</span> উন্নত নিরাপত্তা
+                            </li>
                         </ul>
 
-                        <button class="w-full bg-[#ff6b00] text-white py-4 rounded-full font-bold text-lg 
-                                   group-hover:bg-white group-hover:text-[#ff6b00] transition">
+                        <button class="w-full text-white py-4 rounded-full font-bold text-lg transition
+                           bg-[linear-gradient(180deg,_#FF5A00_0%,_#FF7700_100%)] 
+                           group-hover:bg-none group-hover:bg-white group-hover:text-[#ff6b00]">
                             যোগাযোগ করুন
                         </button>
                     </div>
                 </div>
 
-                <!-- Enterprise Pro -->
                 <div class="group border border-gray-200 rounded-[2rem] p-8 flex flex-col bg-white 
-                        transition duration-300 relative overflow-hidden">
-                    <!-- Gradient overlay -->
-                    <div class="absolute inset-0 bg-gradient-to-b from-[#FF5A00] to-[#FF7700] opacity-0 
-                            group-hover:opacity-100 transition duration-300 rounded-[2rem] z-0"></div>
+            transition duration-300 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-[linear-gradient(180deg,_#FF5A00_0%,_#FF7700_100%)] opacity-0 
+                group-hover:opacity-100 transition duration-300 rounded-[2rem] z-0"></div>
 
                     <div class="relative z-10 flex flex-col h-full">
-                        <h3 class="text-2xl font-bold text-gray-800 group-hover:text-white">Enterprise Pro</h3>
-                        <p class="text-gray-500 text-sm mb-6 group-hover:text-white">বড় ফ্লিটের জন্য</p>
+                        <h3 class="text-[20px] md:text-2xl font-bold text-gray-800 group-hover:text-white">Enterprise
+                            Pro</h3>
+                        <p class="text-[15px] md:text-sm text-gray-500 mb-6 group-hover:text-white">বড় ফ্লিটের জন্য</p>
 
-                        <div class="text-3xl font-bold mb-8 text-gray-800 group-hover:text-white">
+                        <div class="text-[28px] md:text-3xl font-bold mb-8 text-gray-800 group-hover:text-white">
                             TK ৯৯৯৯
-                            <span class="text-gray-500 text-lg font-normal group-hover:text-white">/মাস</span>
+                            <span
+                                class="text-[15px] md:text-lg font-normal text-gray-500 group-hover:text-white">/মাস</span>
                         </div>
 
                         <ul class="space-y-4 mb-10 flex-grow">
-                            <li class="flex gap-3 text-gray-700 group-hover:text-white"><span>✓</span> সীমাহীন যানবাহন
+                            <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
+                                <span>✓</span> সীমাহীন যানবাহন
                             </li>
-                            <li class="flex gap-3 text-gray-700 group-hover:text-white"><span>✓</span> ডেডিকেটেড
-                                অ্যাকাউন্ট ম্যানেজার</li>
-                            <li class="flex gap-3 text-gray-700 group-hover:text-white"><span>✓</span> কাস্টম
-                                ইন্টিগ্রেশন</li>
-                            <li class="flex gap-3 text-gray-700 group-hover:text-white"><span>✓</span> হোয়াইট-লেবেল
-                                অপশন</li>
+                            <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
+                                <span>✓</span> ডেডিকেটেড ম্যানেজার
+                            </li>
+                            <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
+                                <span>✓</span> হোয়াইট-লেবেল অপশন
+                            </li>
+                            <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
+                                <span>✓</span> ফুল API সাপোর্ট
+                            </li>
                         </ul>
 
-                        <button class="w-full bg-[#ff6b00] text-white py-4 rounded-full font-bold text-lg 
-                                   group-hover:bg-white group-hover:text-[#ff6b00] transition">
+                        <button class="w-full text-white py-4 rounded-full font-bold text-lg transition
+                           bg-[linear-gradient(180deg,_#FF5A00_0%,_#FF7700_100%)] 
+                           group-hover:bg-none group-hover:bg-white group-hover:text-[#ff6b00]">
                             যোগাযোগ করুন
                         </button>
                     </div>
@@ -1004,7 +1009,7 @@
 
 
     <section id="contact" class="bg-[#f7f5f2] py-20 px-2 sm:px-6">
-        <div class="max-w-7xl mx-auto w-[95%] lg:w-full flex flex-col lg:flex-row items-center gap-16">
+        <div class="max-w-6xl mx-auto w-[95%] lg:w-full flex flex-col lg:flex-row items-center gap-16">
             <div class="w-full lg:w-5/12 space-y-8">
                 <div class="text-center md:text-left">
                     <h2 class="text-[22px] md:text-5xl font-extrabold text-gray-800 mb-3 md:mb-6">
@@ -1023,8 +1028,8 @@
                 </div>
             </div>
             <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-            <div class="w-full max-w-2xl p-0 md:p-4">
-                <div class="bg-white p-5 sm:p-8 rounded-xl shadow-md max-w-md mx-auto">
+            <div class="w-full max-w-2xl">
+                <div class="bg-white p-5 sm:p-8 rounded-xl shadow-md mx-auto">
 
                     <form id="contactForm" class="space-y-4 sm:space-y-6">
 
@@ -1135,7 +1140,7 @@
 
 
     <footer class="bg-[#1a1a1a] text-white py-12 px-6 hidden md:block">
-        <div class="max-w-7xl mx-auto flex flex-col items-center lg:grid lg:grid-cols-4 lg:items-start gap-12">
+        <div class="max-w-6xl mx-auto flex flex-col items-center lg:grid lg:grid-cols-4 lg:items-start gap-12">
 
             <div class="space-y-8 flex flex-col items-center lg:items-start text-center lg:text-left lg:col-span-1">
                 <div class="flex items-center gap-2">
@@ -1177,19 +1182,18 @@
                 </ul>
             </div>
 
-            <div>
+            <div class="flex flex-col items-end w-full">
                 <h4 class="text-xl font-bold mb-6">সামাজিক মাধ্যম</h4>
 
-                <div class="flex gap-4">
-
-                    <img src="icons_social.png">
-
+                <div class="flex justify-end">
+                    <img src="icons_social.png" alt="Social Media Icons"
+                        class="xl:w-[152px] xl:h-[40px] object-contain opacity-100">
                 </div>
             </div>
 
         </div>
 
-        <div class="max-w-7xl mx-auto border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
+        <div class="max-w-6xl mx-auto border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
             © ২০২৪ TripKhata. সর্বস্বত্ব সংরক্ষিত।
         </div>
     </footer>
@@ -1206,7 +1210,7 @@
 
             </div>
 
-            <div class="w-full grid grid-cols-2 gap-4 border-t border-gray-800 pt-10">
+            <div class="w-full grid grid-cols-2 gap-4 pt-10">
 
                 <div class="space-y-4">
                     <h4 class="text-xl font-bold">Pages</h4>
@@ -1238,14 +1242,13 @@
                 </div>
             </div>
 
-            <div class="flex gap-6 mt-12">
-                <img src="icons_social.png">
-            </div>
-
         </div>
 
-        <div class="max-w-7xl mx-auto border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-xs">
+        <div class="max-w-7xl mx-auto border-t mt-12 pt-8 text-center text-gray-500 text-xs">
             © ২০২৪ TripKhata. সর্বস্বত্ব সংরক্ষিত।
+        </div>
+        <div class="flex justify-center gap-6 mt-12">
+            <img src="icons_social.png">
         </div>
     </footer>
 
