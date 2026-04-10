@@ -155,6 +155,73 @@
         });
     </script>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Select Elements
+            const menuBtn = document.getElementById('menuBtn');       // Hamburger
+            const closeBtn = document.getElementById('closeBtn');     // The "X" Button
+            const mobileMenu = document.getElementById('mobileMenu'); // The Full Page Div
+            const navLinks = mobileMenu.querySelectorAll('a');        // All links inside menu
+
+            // Language Toggle Elements
+            const langToggle = document.getElementById('langToggleMobile');
+            const bnBtn = document.getElementById('bnBtnMobile');
+            const enBtn = document.getElementById('enBtnMobile');
+
+            // --- MENU LOGIC ---
+
+            // Function to Open Menu
+            const openMenu = () => {
+                mobileMenu.classList.remove('hidden');
+                mobileMenu.classList.add('flex');
+                // Prevent background page from scrolling
+                document.body.style.overflow = 'hidden';
+            };
+
+            // Function to Close Menu
+            const closeMenu = () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('flex');
+                // Restore background scrolling
+                document.body.style.overflow = 'auto';
+            };
+
+            // Event Listeners for Open/Close
+            if (menuBtn) menuBtn.addEventListener('click', openMenu);
+            if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+
+            // Close menu automatically when a link is clicked
+            navLinks.forEach(link => {
+                link.addEventListener('click', closeMenu);
+            });
+
+            // --- LANGUAGE TOGGLE LOGIC ---
+
+            if (langToggle) {
+                langToggle.addEventListener('click', () => {
+                    // Check current state (assuming "bn" is active if it has the white bg)
+                    const isBengali = bnBtn.classList.contains('bg-white');
+
+                    if (isBengali) {
+                        // Switch to English
+                        bnBtn.classList.remove('bg-white', 'text-orange-600');
+                        bnBtn.classList.add('text-white');
+
+                        enBtn.classList.add('bg-white', 'text-orange-600');
+                        enBtn.classList.remove('text-white');
+                    } else {
+                        // Switch to Bengali
+                        enBtn.classList.remove('bg-white', 'text-orange-600');
+                        enBtn.classList.add('text-white');
+
+                        bnBtn.classList.add('bg-white', 'text-orange-600');
+                        bnBtn.classList.remove('text-white');
+                    }
+                });
+            }
+        });
+    </script>
+
     <section class="relative py-14 md:py-20 lg:py-24 px-1 sm:px-1 overflow-hidden bg-white"
         style="background-image: url('Vector_photo.png'); background-size: cover; background-position: center;">
         <div class="absolute inset-0 z-0 opacity-[0.05] pointer-events-none"></div>
