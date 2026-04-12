@@ -16,9 +16,6 @@
 </head>
 
 <body class="bg-slate-50 font-sans text-slate-900">
-
-
-
     <div style="
     background-image: url('Vector_photo.png'); 
     background-size: cover; 
@@ -27,9 +24,8 @@
     width: 100%;
 ">
         <nav class="flex md:hidden items-center justify-between px-4 py-3 border-b relative z-50">
-            <img src="trip_khata.png" class="w-36" />
-
-            <button id="menuBtn" class="text-2xl focus:outline-none">
+            <img src="trip_khata.png" class="w-[185.66px] h-[32px] md:w-[220px] md:h-auto" />
+            <button id="menuBtn" class="w-[32px] h-[32px] text-2xl flex items-center justify-center focus:outline-none">
                 ☰
             </button>
         </nav>
@@ -143,7 +139,12 @@
         </section>
     </div>
 
-    <div id="mobileMenu" class="hidden fixed inset-0 z-50 bg-white flex-col md:hidden overflow-hidden">
+    <div id="mobileMenu" class="hidden fixed inset-0 z-50 bg-white flex-col md:hidden overflow-hidden"
+    style="background-image: url('Vector_photo.png'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    width: 100%;">
 
         <div class="absolute inset-0 opacity-5 pointer-events-none select-none">
             <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Map_of_Bangladesh.svg"
@@ -154,8 +155,8 @@
                 class="absolute top-1/2 left-1/4 w-40 opacity-10" />
         </div>
 
-        <div class="flex items-center justify-between px-6 py-4 z-10">
-            <img src="trip_khata.png" class="w-36" alt="TripKhata Logo" />
+        <div class="flex items-center justify-between px-4 py-3 z-10">
+            <img src="trip_khata.png" class="w-[185.66px] h-[32px] md:w-[220px] md:h-auto" />
             <button id="closeBtn" class="text-3xl text-gray-800 focus:outline-none">&times;</button>
         </div>
 
