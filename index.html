@@ -1,0 +1,1514 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>TripKhata - ডিজিটাল পরিবহন হিসাব খাতা</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style type="text/tailwindcss">
+        body {
+            background-color: white !important;
+        }
+
+        .hero-bg {
+            background-image: url('Vector_photo.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 100%;
+            width: 100%;
+        }
+
+        /* Mobile (override only image) */
+        @media (max-width: 767px) {
+            .hero-bg {
+                background-image: url('mobile_vector.png');
+            }
+        }
+
+        @layer base {
+            html {
+                font-family: "Inter";
+            }
+
+            /* This ensures form elements and buttons also pick it up */
+            button,
+            input,
+            optgroup,
+            select,
+            textarea {
+                font-family: inherit;
+            }
+        }
+         @media (min-width: 768px) {
+    .hide-md {
+      display: none !important;
+    }
+  }
+    </style>
+</head>
+
+<div class="hero-bg">
+    <nav class="flex hide-md items-center justify-between px-4 py-3 border-b relative z-50">
+        <img src="trip_khata.png" class="w-[185.66px] h-[32px] md:w-[220px] md:h-auto" />
+        <button id="menuBtn" class="w-[32px] h-[32px] text-2xl flex items-center justify-center focus:outline-none">
+            ☰
+        </button>
+    </nav>
+
+    <nav class="hidden flex md:flex items-center justify-between px-6 py-4 max-w-7xl mx-auto border-b border-gray-100"
+        style="    /* width: 90%; */
+    border-bottom: 1px solid #EAEAEA;
+    padding-right: 10%;
+    padding-left: 10%;">
+        <div class="flex items-center gap-2">
+            <img src="trip_khata.png" class="w-[200px] h-auto md:w-[243px] md:h-[42px]">
+        </div>
+
+        <div class="hidden md:flex items-center space-x-5 text-slate-600 font-medium text-[18px]">
+            <a href="#" class="hover:text-orange-600 transition">হোম</a>
+            <a href="#services" class="hover:text-orange-600 transition">সেবাসমূহ</a>
+            <a href="#packages" class="hover:text-orange-600 transition">প্যাকেজসমূহ</a>
+            <a href="#contact" class="hover:text-orange-600 transition">যোগাযোগ</a>
+
+            <div id="langToggle" class="flex items-center justify-between text-xs text-white font-bold cursor-pointer"
+                style="
+        width: 56px;
+        height: 30px;
+        background: linear-gradient(0deg, #FF5A00 0%, #FF7700 100%);
+        border-radius: 15px;
+        opacity: 1;
+        left: 444.52px;
+        padding: 0 4px;
+     ">
+
+                <span id="bnBtn"
+                    class="bg-white text-orange-600 rounded-full w-8 h-6 flex items-center justify-center text-center">
+                    বাং
+                </span>
+
+                <span id="enBtn" class="w-8 h-6 flex items-center justify-center text-center">
+                    EN
+                </span>
+            </div>
+
+            <script>
+                let currentLang = "bn";
+
+                document.getElementById("langToggle").addEventListener("click", function () {
+
+                    let bnBtn = document.getElementById("bnBtn");
+                    let enBtn = document.getElementById("enBtn");
+
+                    if (currentLang === "bn") {
+                        currentLang = "en";
+
+                        bnBtn.classList.remove("bg-white", "text-orange-600");
+                        enBtn.classList.add("bg-white", "text-orange-600", "rounded-full");
+                    } else {
+                        currentLang = "bn";
+
+                        enBtn.classList.remove("bg-white", "text-orange-600");
+                        bnBtn.classList.add("bg-white", "text-orange-600");
+                    }
+                });
+            </script>
+        </div>
+
+        <button class="bg-[#27272a] text-white px-8 py-2.5 rounded-full font-semibold hover:bg-slate-800 transition">
+            লগইন
+        </button>
+    </nav>
+
+    <section class="relative pt-[30px] md:py-20 lg:pt-[50px] lg:pb-[18px] px-1 sm:px-1 overflow-hidden bg-transparent">
+        <div class="absolute inset-0 z-0 opacity-[0.05] pointer-events-none"></div>
+
+        <div class="relative z-10 max-w-5xl mx-auto text-center">
+
+            <!-- Heading -->
+            <h1 class="w-full px-2 font-archivo font-medium tracking-tight text-[#1e293b] text-center">
+                <span
+                    class="leading-[1.6] text-[#282727] block font-semibold text-[32px] lg:text-[80px] break-keep whitespace-nowrap">
+                    ট্রিপ, ভাড়া ও হিসাব রাখুন
+                </span>
+
+                <span
+                    class="leading-[1.6] antialiased text-[#282727] block  font-semibold text-[21px] lg:text-[56px] mt-1 lg:mt-2 whitespace-nowrap">
+                    একদম খাতার মতো – ডিজিটালভাবে
+                </span>
+            </h1>
+
+            <!-- Description -->
+            <p class="text-[15px] mt-[16px] mb-[20px] text-[#282727] max-w-[95%] mx-auto 
+           md:text-[24px] md:leading-[36px] md:text-center md:mt-8 md:mb-10">
+                TripKhata হলো পরিবহন ব্যবসার জন্য একটি সহজ ডিজিটাল খাতা, যার মাধ্যমে ট্রাক, বাস ও রেন্ট-এ-কার
+                ব্যবসার দৈনিক ট্রিপ, আয়-খরচ ও বকেয়া হিসাব রাখা যায় ঝামেলা ছাড়াই।
+            </p>
+
+            <!-- Buttons -->
+            <div class="flex flex-row items-center justify-center gap-2 sm:gap-4">
+
+                <button
+                    class="w-[171px] h-[44px] sm:w-auto sm:h-auto text-white text-[14px] sm:text-lg font-bold px-5 sm:px-10 py-0 sm:py-4 rounded-full shadow-lg whitespace-nowrap transition-all hover:opacity-90 flex items-center justify-center"
+                    style="background: linear-gradient(180deg, #FF5A00 0%, #FF7700 100%);">
+                    ফ্রি ব্যবহার শুরু করুন
+                </button>
+
+                <button
+                    class="w-[171px] h-[44px] sm:w-auto sm:h-auto bg-[#27272a] text-white text-[14px] sm:text-lg font-bold px-5 sm:px-10 py-0 sm:py-4 rounded-full hover:bg-slate-800 transition-all whitespace-nowrap flex items-center justify-center">
+                    লাইভ ডেমো দেখুন
+                </button>
+
+            </div>
+        </div>
+    </section>
+</div>
+
+<div id="mobileMenu" class="hidden fixed inset-0 z-50 bg-white flex-col hide-md overflow-hidden" style="background-image: url('vector_image_cross.png'); 
+    background-size: contain; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    width: 100%;">
+
+    <div class="absolute inset-0 opacity-5 pointer-events-none select-none">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Map_of_Bangladesh.svg"
+            class="absolute top-10 right-[-50px] w-64 rotate-12" />
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Map_of_Bangladesh.svg"
+            class="absolute bottom-20 left-[-50px] w-64 -rotate-12" />
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Map_of_Bangladesh.svg"
+            class="absolute top-1/2 left-1/4 w-40 opacity-10" />
+    </div>
+
+    <div class="flex items-center justify-between px-4 py-3 z-10">
+        <img src="trip_khata.png" class="w-[185.66px] h-[32px] md:w-[220px] md:h-auto" />
+        <button id="closeBtn" class="text-3xl text-white focus:outline-none">&times;</button>
+    </div>
+
+    <div class="flex-1 flex flex-col items-center justify-start pt-12 space-y-8 z-10">
+        <a href="#" class="text-lg font-semibold text-white">হোম</a>
+        <a href="#services" class="text-lg font-semibold text-white">সেবাসমূহ</a>
+        <a href="#packages" class="text-lg font-semibold text-white">প্যাকেজসমূহ</a>
+        <a href="#brands" class="text-lg font-semibold text-white">ব্র্যান্ডসমূহ</a>
+        <a href="#contact" class="text-lg font-semibold text-white">যোগাযোগ</a>
+
+        <div id="langToggleMobile"
+            class="flex items-center w-[85px] h-10 bg-[#FF7000] rounded-full p-1 cursor-pointer mt-4">
+            <span id="bnBtnMobile"
+                class="bg-white text-[#FF7000] w-1/2 h-full flex items-center justify-center rounded-full text-sm font-bold">বাং</span>
+            <span id="enBtnMobile"
+                class="w-1/2 h-full flex items-center justify-center text-white text-sm font-bold">EN</span>
+        </div>
+
+        <button
+            class="px-10 py-3 bg-[#2D2D2D] text-white rounded-full text-lg font-medium shadow-lg active:scale-95 transition-transform">
+            লগইন
+        </button>
+    </div>
+</div>
+
+<script>
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+    });
+
+    // Language toggle (mobile)
+    let currentLangMobile = "bn";
+
+    document.getElementById("langToggleMobile").addEventListener("click", function () {
+        let bn = document.getElementById("bnBtnMobile");
+        let en = document.getElementById("enBtnMobile");
+
+        if (currentLangMobile === "bn") {
+            currentLangMobile = "en";
+            bn.classList.remove("bg-white", "text-orange-600");
+            en.classList.add("bg-white", "text-orange-600", "rounded-full");
+        } else {
+            currentLangMobile = "bn";
+            en.classList.remove("bg-white", "text-orange-600");
+            bn.classList.add("bg-white", "text-orange-600");
+        }
+    });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // 1. Select Elements
+        const menuBtn = document.getElementById('menuBtn');       // Hamburger
+        const closeBtn = document.getElementById('closeBtn');     // The "X" Button
+        const mobileMenu = document.getElementById('mobileMenu'); // The Full Page Div
+        const navLinks = mobileMenu.querySelectorAll('a');        // All links inside menu
+
+        // Language Toggle Elements
+        const langToggle = document.getElementById('langToggleMobile');
+        const bnBtn = document.getElementById('bnBtnMobile');
+        const enBtn = document.getElementById('enBtnMobile');
+
+        // --- MENU LOGIC ---
+
+        // Function to Open Menu
+        const openMenu = () => {
+            mobileMenu.classList.remove('hidden');
+            mobileMenu.classList.add('flex');
+            // Prevent background page from scrolling
+            document.body.style.overflow = 'hidden';
+        };
+
+        // Function to Close Menu
+        const closeMenu = () => {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('flex');
+            // Restore background scrolling
+            document.body.style.overflow = 'auto';
+        };
+
+        // Event Listeners for Open/Close
+        if (menuBtn) menuBtn.addEventListener('click', openMenu);
+        if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+
+        // Close menu automatically when a link is clicked
+        navLinks.forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+
+        // --- LANGUAGE TOGGLE LOGIC ---
+
+        if (langToggle) {
+            langToggle.addEventListener('click', () => {
+                // Check current state (assuming "bn" is active if it has the white bg)
+                const isBengali = bnBtn.classList.contains('bg-white');
+
+                if (isBengali) {
+                    // Switch to English
+                    bnBtn.classList.remove('bg-white', 'text-orange-600');
+                    bnBtn.classList.add('text-white');
+
+                    enBtn.classList.add('bg-white', 'text-orange-600');
+                    enBtn.classList.remove('text-white');
+                } else {
+                    // Switch to Bengali
+                    enBtn.classList.remove('bg-white', 'text-orange-600');
+                    enBtn.classList.add('text-white');
+
+                    bnBtn.classList.add('bg-white', 'text-orange-600');
+                    bnBtn.classList.remove('text-white');
+                }
+            });
+        }
+    });
+</script>
+
+
+
+<div class="mt-[30px] lg:mt-8 md:mt-12 flex justify-center">
+
+    <div class="block hide-md">
+        <img src="second_heroImage.png" alt="Transport Truck"
+            class="mx-auto w-[370px] h-[212px] md:h-auto xl:w-[1300px] xl:h-[468px] md:w-[1300px] md:h-[468px] object-cover rounded-xl">
+    </div>
+
+    <div class="hidden md:block">
+        <img src="heroImage.jpeg" alt="Transport Truck"
+            class="mx-auto w-[370px] h-[212px] md:h-auto xl:w-[1300px] xl:h-[468px] md:w-[1300px] md:h-[468px] object-cover rounded-xl">
+    </div>
+
+</div>
+
+
+<section id="services" class="/* Mobile Styles (Default) */
+    bg-[#F5F0EAB8] 
+    mt-[50px] 
+    pt-[30px] 
+    md:pt-[80px] 
+    
+
+    /* Reset for Medium & Large Screens (>= 768px) */
+    md:mt-[80px] 
+    md:py-20">
+    <div class="mx-0 px-0 sm:px-6 md:px-36">
+
+        <!-- Section Title -->
+        <h2
+            class="text-[27px] md:text-[34px]  md:text-3xl font-semibold text-gray-900  md:mb-10 mb-[30px] text-center md:text-left">
+            TripKhata-এর মূল সেবাসমূহ
+        </h2>
+
+        <!-- Cards Grid -->
+        <div class="mx-2 px-2 md:mx-0 md:px-0 grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 sm:gap-6">
+
+            <!-- Card 1 -->
+            <div class="bg-white rounded-[9px] p-4 md:p-8 sm:p-6 shadow hover:shadow-lg transition duration-300">
+                <div
+                    class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-3 md:mb-8 sm:mb-4">
+                    <img src="main_khata_one.png" class="w-[44px] h-[44px] md:w-[64px]" />
+                </div>
+                <h3 class="text-[15px] md:text-[18px] sm:text-lg font-bold text-gray-900 mb-1 md:mb-2 sm:mb-2">
+                    ড্যাশবোর্ড</h3>
+                <p class="text-[12px] md:text-[16px] text-[#4A5565] leading-[26.5px] mt-[8px]">
+                    এক নজরে আজকের ট্রিপ, আয়-খরচ ও মোট বকেয়ার সারাংশ দেখুন
+                </p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-white rounded-[9px] p-4 md:p-8 sm:p-6 shadow hover:shadow-lg transition duration-300">
+                <div
+                    class="w-10 h-10 sm:w-12 sm:h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-3 md:mb-8 sm:mb-4">
+                    <img src="main_khata_two.png" class="w-[44px] h-[44px] md:w-[64px]" />
+                </div>
+                <h3 class="text-[15px] md:text-[18px] sm:text-lg font-bold text-gray-900 mb-1 md:mb-2 sm:mb-2">ট্র্যাক
+                    খাতা</h3>
+                <p class="text-[12px] md:text-[16px] text-[#4A5565] leading-[26.5px] mt-[8px]">
+                    প্রতিটি ট্র্যাক অনুযায়ী ট্রিপ, আয় ও খরচের পূর্ণ হিসাব সংরক্ষণ করুন
+                </p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="bg-white rounded-[9px] p-4 md:p-8 sm:p-6 shadow hover:shadow-lg transition duration-300">
+                <div
+                    class="w-10 h-10 sm:w-12 sm:h-12 bg-green-100 rounded-lg flex items-center justify-center mb-3 md:mb-8 sm:mb-4">
+                    <img src="main_khata_three.png" class="w-[44px] h-[44px] md:w-[64px]" />
+                </div>
+                <h3 class="text-[15px] md:text-[18px] sm:text-lg font-bold text-gray-900 mb-1 md:mb-2 sm:mb-2">ভেন্টুর
+                    খাতা</h3>
+                <p class="text-[12px] md:text-[16px] text-[#4A5565] leading-[26.5px] mt-[8px]">
+                    স্বচ্ছ হিসাব রাখুন ভেন্টুর বা গাড়ি অনুযায়ী ভাড়া, পরিবেশ ও বকেয়ার
+                </p>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="bg-white rounded-[9px] p-4 md:p-8 sm:p-6 shadow hover:shadow-lg transition duration-300">
+                <div
+                    class="w-10 h-10 sm:w-12 sm:h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-3 md:mb-8 sm:mb-4">
+                    <img src="main_khata_four.png" class="w-[44px] h-[44px] md:w-[64px]" />
+                </div>
+                <h3 class="text-[15px] md:text-[18px] sm:text-lg font-bold text-gray-900 mb-1 md:mb-2 sm:mb-2">কাস্টমার
+                    খাতা</h3>
+                <p class="text-[12px] md:text-[16px] text-[#4A5565] leading-[26.5px] mt-[8px]">
+                    কাস্টমার অনুযায়ী ট্রিপ, বিল, আদায় ও বকেয়া সহজে ট্র্যাক করুন
+                </p>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="bg-white rounded-[9px] p-4 md:p-8 sm:p-6 shadow hover:shadow-lg transition duration-300">
+                <div
+                    class="w-10 h-10 sm:w-12 sm:h-12 bg-red-100 rounded-lg flex items-center justify-center mb-3 md:mb-8 sm:mb-4">
+                    <img src="main_khata_five.png" class="w-[44px] h-[44px] md:w-[64px]" />
+                </div>
+                <h3 class="text-[15px] md:text-[18px] sm:text-lg font-bold text-gray-900 mb-1 md:mb-2 sm:mb-2">কর্মচারী
+                    খাতা</h3>
+                <p class="text-[12px] md:text-[16px] text-[#4A5565] leading-[26.5px] mt-[8px]">
+                    কর্মচারীদের বেতন, অগ্রিম ও পরিষদের হিসাব আলাদা খাতায় রাখুন
+                </p>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="bg-white rounded-[9px] p-4 md:p-8 sm:p-6 shadow hover:shadow-lg transition duration-300">
+                <div
+                    class="w-10 h-10 sm:w-12 sm:h-12 bg-yellow-100 rounded-lg flex items-center justify-center mb-3 md:mb-8 sm:mb-4">
+                    <img src="main_khata_six.png" class="w-[44px] h-[44px] md:w-[64px]" />
+                </div>
+                <h3 class="text-[15px] md:text-[18px] sm:text-lg font-bold text-gray-900 mb-1 md:mb-2 sm:mb-2">অফিস
+                    সরঞ্জাম</h3>
+                <p class="text-[12px] md:text-[16px] text-[#4A5565] leading-[26.5px] mt-[8px]">
+                    অফিসের আসবাব ও সরঞ্জামের তালিকা ও খরচ নিয়ন্ত্রণে রাখুন
+                </p>
+            </div>
+
+            <!-- Card 7 -->
+            <div class="bg-white rounded-[9px] p-4 md:p-8 sm:p-6 shadow hover:shadow-lg transition duration-300">
+                <div
+                    class="w-10 h-10 sm:w-12 sm:h-12 bg-cyan-100 rounded-lg flex items-center justify-center mb-3 md:mb-8 sm:mb-4">
+                    <img src="main_khata_seven.png" class="w-[44px] h-[44px] md:w-[64px]" />
+                </div>
+                <h3 class="text-[15px] md:text-[18px] sm:text-lg font-bold text-gray-900 mb-1 md:mb-2 sm:mb-2">ইনভয়েস ও
+                    পেমেন্ট</h3>
+                <p class="text-[12px] md:text-[16px] text-[#4A5565] leading-[26.5px] mt-[8px]">
+                    ট্রিপ বা কাস্টমার অনুযায়ী ইনভয়েস তৈরি ও পেমেন্ট হিসাব করুন
+                </p>
+            </div>
+
+            <!-- Card 8 -->
+            <div class="bg-white rounded-[9px] p-4 md:p-8 sm:p-6 shadow hover:shadow-lg transition duration-300">
+                <div
+                    class="w-10 h-10 sm:w-12 sm:h-12 bg-pink-100 rounded-lg flex items-center justify-center mb-3 sm:mb-4">
+                    <img src="main_khata_eight.png" class="w-[44px] h-[44px] md:w-[64px]" />
+                </div>
+                <h3 class="text-[15px] md:text-[18px] sm:text-lg font-bold text-gray-900 mb-1 md:mb-2 sm:mb-2">ট্রিপ
+                    খাতা</h3>
+                <p class="text-[12px] md:text-[16px] text-[#4A5565] leading-[26.5px] mt-[8px]">
+                    সব ট্রিপের বিস্তারিত রেকর্ড ও ট্রিপভিত্তিক লাভ-লোকসান দেখুন
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+<section
+    class="pb-[36px] md:pb-[80px] bg-[#121212] text-white pt-[50px] md:pt-[80px] px-4 md:px-12 flex items-center justify-center">
+    <div class="max-w-6xl w-full flex flex-col-reverse lg:grid lg:grid-cols-2 gap-8 items-center md:items-start">
+
+        <!-- Text Section -->
+        <div class="space-y-8">
+            <div class="flex items-start gap-4">
+                <div class="bg-red-500 rounded-full w-[30px] h-[30px] mt-1 shrink-0 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-[18px] w-[18px] text-white" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </div>
+                <h2
+                    class="font-['Inter'] text-[24px] md:text-[34px] md:text-5xl font-bold leading-tight tracking-[0.07px] m-0">
+                    কাগজের খাতায় হিসাব রাখলে যেসব সমস্যা হয়
+                </h2>
+            </div>
+
+            <ul class="space-y-6">
+                <li class="flex items-start gap-2 group">
+                    <div class="rounded-xl  transition-colors">
+                        <img src="kagoj_image_one.png" class="w-[33px] h-[33px] md:w-10 md:h-10">
+                    </div>
+                    <p
+                        class="font-['Inter'] mt-2 ml-1 text-[18px] md:text-[20px] font-bold leading-[28px] tracking-[-0.45px] text-white ">
+                        হিসাব মেলাতে সময় লাগে</p>
+                </li>
+
+                <li class="flex items-start gap-2 group">
+                    <div class="rounded-xl  transition-colors">
+                        <img src="kagoj_image_two.png" class="w-[33px] h-[33px] md:w-10 md:h-10">
+                    </div>
+                    <p
+                        class="font-['Inter'] mt-2 ml-1 text-[18px] md:text-[20px] font-bold leading-[28px] tracking-[-0.45px] text-white ">
+                        ট্রিপ অনুযায়ী লাভ-লোকসান বোঝা যায় না</p>
+                </li>
+
+                <li class="flex items-start gap-2 group">
+                    <div class="rounded-xl  transition-colors">
+                        <img src="kagoj_image_three.png" class="w-[33px] h-[33px] md:w-10 md:h-10">
+                    </div>
+                    <p
+                        class="font-['Inter'] mt-2 ml-1 text-[18px] md:text-[20px] font-bold leading-[28px] tracking-[-0.45px] text-white ">
+                        মাস শেষে রিপোর্ট বানানো ঝামেলার</p>
+                </li>
+
+                <li class="flex items-start gap-2 group">
+                    <div class="rounded-xl  transition-colors">
+                        <img src="kagoj_image_four.png" class="w-[33px] h-[33px] md:w-10 md:h-10">
+                    </div>
+                    <p
+                        class="font-['Inter'] mt-2 ml-1 text-[18px] md:text-[20px] font-bold leading-[28px] tracking-[-0.45px] text-white ">
+                        ড্রাইভার বা পার্টির বকেয়া ভুলে যাওয়ার ঝুঁকি
+                    </p>
+                </li>
+
+                <li class="flex items-start gap-2 group">
+                    <div class="rounded-xl  transition-colors">
+                        <img src="kagoj_image_five.png" class="w-[33px] h-[33px] md:w-10 md:h-10">
+                    </div>
+                    <p
+                        class="font-['Inter'] mt-2 ml-1 text-[18px] md:text-[20px] font-bold leading-[28px] tracking-[-0.45px] text-white ">
+                        পুরনো হিসাব খুঁজে পাওয়া কঠিন</p>
+                </li>
+
+                <li class="flex items-start gap-2 group">
+                    <div class="rounded-xl  transition-colors">
+                        <img src="kagoj_image_six.png" class="w-[33px] h-[33px] md:w-16 w-[62px] md:h-10">
+                    </div>
+                    <p
+                        class="font-['Inter'] mt-2 ml-1 text-[18px] md:text-[20px] font-bold leading-[28px] tracking-[-0.45px] text-white ">
+                        পরিবহনের খাতা হারিয়ে গেলে সম্পূর্ণ হিসাব-নিকাশ হারিয়ে যাওয়ার ঝুঁকি থাকে
+                    </p>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Image Section -->
+        <div class="relative group">
+            <div class="relative overflow-hidden rounded-[14px] border border-white/10">
+                <img src="trip_khata_section_image_one.jpg" alt="Messy accounts"
+                    class="w-[370px] h-[407px] md:w-[470px] md:h-[518px] object-cover rounded-[14px] transform transition duration-500 group-hover:scale-105" />
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<section
+    class="bg-[#FFE9CB] border-black min-h-[500px] flex items-center justify-center p-3 md:pt-[80px] pb-[35px] p-3 md:pb-[80px] md:p-12">
+    <div class="max-w-6xl w-full flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-20">
+
+        <div class="w-full md:w-1/2">
+            <div class="relative rounded-[10px] overflow-hidden">
+                <img src="tripkhata_section_image_two.jpeg" alt="Transport Business"
+                    class="w-[470px] h-[518px] md:h-[518px] object-cover rounded-[10px]">
+                <div class="absolute top-1/3 left-1/3 -translate-y-1/2 p-3 rounded-xl shadow-lg">
+                    <img src="truck_image_five.png" class="w-[79px] h-[85px]">
+                </div>
+            </div>
+        </div>
+
+        <div class="w-full md:w-1/2 mt-[16px]">
+            <div class="flex items-center gap-1">
+                <div class="bg-[#FFE9CB] border-black rounded-full p-1">
+                    <div class="bg-black p-1 rounded-full inline-block">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+                <h2 class="font-['Inter'] text-[24px] md:text-3xl font-bold leading-[32px] tracking-[0.07px]">
+                    সমাধান একটাই – TripKhata
+                </h2>
+            </div>
+
+            <p
+                class="font-['Inter'] text-[20px] md:text-[24px] font-normal leading-[140%] tracking-[-0.44px] opacity-90 md:leading-[29.25px] md:mt-[34px]">
+                TripKhata আপনার ব্যবসার সব হিসাব রাখে এক জায়গায়, যেন আপনি খাতার মতো সহজভাবে কিন্তু ডিজিটাল সুবিধায়
+                কাজ করতে পারেন।
+            </p>
+
+            <ul class="space-y-4 pt-4 md:pt-[30px]">
+                <li class="flex items-center">
+                    <div class="bg-[#FFE9CB] border-black p-2 pl-0 rounded-lg">
+                        <span class="w-10 h-10 block text-center">
+                            <img src="truck_image_one.png" alt="Income and Expense">
+                        </span>
+                    </div>
+                    <span class="font-['Inter'] text-[18px] md:text-xl font-bold leading-[28px] tracking-[-0.45px]">আয়
+                        ও খরচ আলাদা হিসাব</span>
+                </li>
+
+                <li class="flex items-center">
+                    <div class="bg-[#FFE9CB] border-black p-2 pl-0 rounded-lg">
+                        <span class="w-10 h-10 block text-center">
+                            <img src="truck_image_two.png" alt="Report">
+                        </span>
+                    </div>
+                    <span
+                        class="font-['Inter'] text-[18px] md:text-xl font-bold leading-[28px] tracking-[-0.45px]">যেকোনো
+                        সময় রিপোর্ট দেখুন</span>
+                </li>
+
+                <li class="flex items-center">
+                    <div class="bg-[#FFE9CB] border-black p-2 pl-0 rounded-lg">
+                        <span class="w-10 h-10 block text-center">
+                            <img src="truck_image_three.png" alt="Trip Account">
+                        </span>
+                    </div>
+                    <span
+                        class="font-['Inter'] text-[18px] md:text-xl font-bold leading-[28px] tracking-[-0.45px]">ট্রিপ
+                        অনুযায়ী হিসাব</span>
+                </li>
+
+                <li class="flex items-center">
+                    <div class="bg-[#FFE9CB] border-black p-2 pl-0 rounded-lg">
+                        <span class="w-10 h-10 block text-center">
+                            <img src="truck_image_four.png" alt="Tracking">
+                        </span>
+                    </div>
+                    <span
+                        class="font-['Inter'] text-[18px] md:text-xl font-bold leading-[28px] tracking-[-0.45px]">বকেয়া
+                        ও পরিশোধ ট্র্যাক</span>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</section>
+
+
+<section class="bg-gray-50 pt-[50px] px-0">
+    <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-[30px]">
+            <h2
+                class="font-['Inter'] text-[32px] md:text-[48px] font-bold leading-[48px] tracking-[0.35px] text-center text-[#282727] mb-4 md:mt-[160px]">
+                TripKhata যেভাবে কাজ করে – মাত্র ৩ ধাপে
+            </h2>
+            <p
+                class="px-[10px] pb-[10px] font-['Inter'] text-[20px] md:text-xl font-normal leading-[150%] tracking-[-0.45px] text-center text-[#4A5565] md:pb-[18px] text-[20px] text-[#4A5565]">
+                TripKhata ব্যবহার করা ঠিক খাতায় হিসাব লেখার মতোই সহজ <br class="hidden md:block">
+                মাত্র তিনটি ধাপে আপনার পুরো পরিবহন ব্যবসার হিসাব ডিজিটালভাবে নিয়ন্ত্রণে আনুন
+            </p>
+        </div>
+
+        <div class="relative">
+
+            <!-- Cards Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-16 lg:gap-6 items-stretch">
+
+                <!-- Card 01 -->
+                <div
+                    class="relative bg-white p-8 rounded-[16px] border border-gray-100 shadow-sm flex flex-col h-[497px] md:h-[530px] ml-[23px] mr-[22px]">
+                    <div
+                        class="absolute -top-5 left-8 bg-[#FF6900] text-white w-[65px] h-[65px] rounded-full flex items-center justify-center font-bold text-xl  ring-4 ring-white">
+                        01
+                    </div>
+
+                    <div
+                        class="mt-[43px] bg-orange-50 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 mt-4">
+                        <img src="how_works_image_one.png">
+                    </div>
+
+                    <h3 class="text-2xl font-bold text-white mb-[15px] mt-[10px] md:text-[24px] text-[#282727]">তথ্য যোগ
+                        করুন</h3>
+
+                    <p
+                        class="font-['Inter'] text-[18px] font-normal leading-[26.41px] tracking-[-0.32px] text-gray-600 mb-4">
+                        প্রথমে আপনার ব্যবসার প্রয়োজনীয় তথ্যগুলো TripKhata-তে যোগ করুন
+                    </p>
+
+                    <ul class="text-[#4A5565] space-y-2 text-sm list-disc pl-5">
+                        <li class="font-['Inter'] text-[16px] font-normal leading-[160%] tracking-[-0.32px]">ট্রাক
+                            তালিকা তৈরি করুন</li>
+                        <li class="font-['Inter'] text-[16px] font-normal leading-[160%] tracking-[-0.32px]">ভেন্ডর
+                            ও গাড়ি অনুযায়ী তথ্য যোগ করুন</li>
+                        <li class="font-['Inter'] text-[16px] font-normal leading-[160%] tracking-[-0.32px]">
+                            কাস্টমার ও কর্মচারী তালিকা সংরক্ষণ করুন</li>
+                        <li class="font-['Inter'] text-[16px] font-normal leading-[160%] tracking-[-0.32px]">অফিস
+                            সরঞ্জামের তথ্য রাখুন</li>
+                    </ul>
+
+                    <div class="hide-md absolute left-1/2 -bottom-6 -translate-x-1/2" style="
+        width: 48px;
+        height: 48px;
+        border-radius: 9999px;
+        background: #FF6900;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+">
+                        <img src="down_arrow.png" style="width: 20px; height: 20px;" />
+                    </div>
+                </div>
+
+                <!-- Card 02 -->
+                <div
+                    class=" relative bg-white p-8 rounded-[16px] border border-gray-100 shadow-sm flex flex-col h-[497px] md:h-[530px] ml-[23px] mr-[22px]">
+                    <div
+                        class="absolute -top-5 left-8 bg-[#FF6900] text-white w-[65px] h-[65px] rounded-full flex items-center justify-center font-bold text-xl  ring-4 ring-white">
+                        02
+                    </div>
+
+                    <div
+                        class="mt-[43px] bg-orange-50 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 mt-4">
+                        <img src="how_works_image_two.png">
+                    </div>
+
+                    <h3 class="text-2xl font-bold text-white mb-[15px] mt-[10px] md:text-[24px] text-[#282727]">
+                        ট্রিপ, বিল ও পেমেন্ট লিখুন
+                    </h3>
+
+                    <p
+                        class="font-['Inter'] text-[18px] font-normal leading-[26.41px] tracking-[-0.32px] text-gray-600 mb-4">
+                        দৈনন্দিন কাজ অনুযায়ী সহজভাবে হিসাব এন্ট্রি করুন
+                    </p>
+
+                    <ul class="text-[#4A5565] space-y-2 text-sm list-disc pl-5">
+                        <li>প্রতিটি ট্রিপ এন্ট্রি করুন</li>
+                        <li>ইনভয়েস তৈরি করুন</li>
+                        <li>পেমেন্ট ও পরিশোধ যোগ করুন</li>
+                        <li>ভেন্ডর, কাস্টমার ও কর্মচারী অনুযায়ী হিসাব আপডেট করুন</li>
+                    </ul>
+                    <div class="hide-md absolute left-1/2 -bottom-6 -translate-x-1/2" style="
+        width: 48px;
+        height: 48px;
+        border-radius: 9999px;
+        background: #FF6900;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+">
+                        <img src="down_arrow.png" style="width: 20px; height: 20px;" />
+                    </div>
+                </div>
+
+                <!-- Card 03 -->
+                <div
+                    class="relative bg-white p-8 rounded-[16px] border border-gray-100 shadow-sm flex flex-col h-[497px] md:h-[530px] ml-[23px] mr-[22px]">
+                    <div
+                        class="absolute -top-5 left-8 bg-[#FF6900] text-white w-[65px] h-[65px] rounded-full flex items-center justify-center font-bold text-xl  ring-4 ring-white">
+                        03
+                    </div>
+
+                    <div
+                        class="mt-[43px] bg-orange-50 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 mt-4">
+                        <img src="how_works_image_three.png">
+                    </div>
+
+                    <h3 class="text-2xl font-bold text-white mb-[15px] mt-[10px] md:text-[24px] text-[#282727]">
+                        রিপোর্ট ও সারাংশ দেখুন
+                    </h3>
+
+                    <p
+                        class="font-['Inter'] text-[18px] font-normal leading-[26.41px] tracking-[-0.32px] text-gray-600 mb-4">
+                        রিপোর্ট ও সারাংশ দেখুন
+                    </p>
+
+                    <ul class="text-[#4A5565] space-y-2 text-sm list-disc pl-5">
+                        <li>ড্যাশবোর্ডে আজকের ট্রিপ, আয়-খরচ ও বকেয়া দেখুন</li>
+                        <li>ট্রাক অনুযায়ী লাভ-লোকসান বিশ্লেষণ করুন</li>
+                        <li>ভেন্ডর ও কাস্টমার খাতা থেকে পাওনা-পরিশোধ দেখুন</li>
+                        <li>ইনভয়েস ও পেমেন্ট রিপোর্ট ডাউনলোড করুন</li>
+                    </ul>
+                    <div class="hide-md absolute left-1/2 -bottom-6 -translate-x-1/2" style="
+        width: 48px;
+        height: 48px;
+        border-radius: 9999px;
+        background: #FF6900;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+">
+                        <img src="down_arrow.png" style="width: 20px; height: 20px;" />
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Arrow 1 -->
+            <div class="hidden lg:flex absolute left-[29.5%] top-1/4 -translate-y-1/2 z-10">
+                <div class="bg-[#FF6900] p-2 rounded-full shadow-md text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7" />
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Arrow 2 -->
+            <div class="hidden lg:flex absolute left-[64.5%] top-1/4 -translate-y-1/2 z-10">
+                <div class="bg-[#FF6900] p-2 rounded-full shadow-md text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7" />
+                    </svg>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mt-[30px] text-center">
+            <div class="flex justify-center items-center w-full">
+
+                <button
+                    class="mb-[40px] mt-[31px] w-[187px] h-[62px] bg-[#2a2d2e] text-white text-[15px] font-bold rounded-full hover:bg-black transition-all flex items-center justify-center text-center leading-tight md:mb-[160px]">
+                    লাইভ ডেমো দেখুন
+                </button>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="w-[92%] max-w-6xl mx-auto rounded-[16px] overflow-hidden border border-transparent">
+
+    <div class="grid grid-cols-1 md:grid-cols-2 w-full">
+
+        <div class="h-[260px] md:h-[400px]">
+            <img src="tripkhata_section_image_three.jpeg" class="w-full h-full object-cover">
+        </div>
+
+        <div class="bg-[#F5E6CC] py-6 px-5 md:px-8 md:h-[400px] flex flex-col justify-center md:pb-[15px]">
+            <h2
+                class="font-['Inter'] font-bold text-[23px] leading-[32px] md:leading-[42px] tracking-[0.07px] text-gray-900 mb-6 md:mb-8 md:text-[34px] md:mt-[30px] md:w-[127%]">
+                কেন TripKhata ব্যবহার করবেন?
+            </h2>
+            <ul class="space-y-[20px] md:space-y-[20px]">
+                <li
+                    class="flex items-start gap-2 font-['Inter'] font-normal text-[20px] leading-[32px] tracking-[-0.44px] text-[#282727]">
+                    <span class="w-1.5 h-1.5 mt-2 bg-gray-900 rounded-full"></span>
+                    বাংলাদেশি পরিবহন ব্যবসার জন্য তৈরি
+                </li>
+                <li
+                    class="flex items-start gap-2 font-['Inter'] font-normal text-[20px] leading-[32px] tracking-[-0.44px] text-[#282727]">
+                    <span class="w-1.5 h-1.5 mt-2 bg-gray-900 rounded-full"></span>
+                    মোবাইল ও ওয়েব – দুটোতেই কাজ করে
+                </li>
+                <li
+                    class="flex items-start gap-2 font-['Inter'] font-normal text-[20px] leading-[32px] tracking-[-0.44px] text-[#282727]">
+                    <span class="w-1.5 h-1.5 mt-2 bg-gray-900 rounded-full"></span>
+                    বাংলাদেশি পরিবহন ব্যবসার জন্য তৈরি
+                </li>
+                <li
+                    class="flex items-start gap-2 font-['Inter'] font-normal text-[20px] leading-[32px] tracking-[-0.44px] text-[#282727]">
+                    <span class="w-1.5 h-1.5 mt-2 bg-gray-900 rounded-full"></span>
+                    সময় বাঁচায়, ভুল কমায়
+                </li>
+                <li
+                    class="flex items-start gap-2 font-['Inter'] font-normal text-[20px] leading-[32px] tracking-[-0.44px] text-[#282727]">
+                    <span class="w-1.5 h-1.5 mt-2 bg-gray-900 rounded-full"></span>
+                    নিরাপদ ক্লাউড ডেটা
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 w-full">
+
+        <div class="bg-[#222222] py-6 px-5 md:px-8 md:h-[400px] flex flex-col justify-center order-2 md:order-1">
+            <h2
+                class="font-['Inter'] font-bold text-[23px] leading-[32px] md:leading-[42px] tracking-[0.07px] text-white mb-6 md:mb-8 md:text-[34px] md:mt-[30px]">
+                TripKhata যাদের জন্য উপযোগী
+            </h2>
+            <ul class="space-y-[20px] md:space-y-[20px] text-white">
+                <li
+                    class="flex items-start gap-2 font-['Inter'] font-normal text-[20px] leading-[32px] tracking-[-0.44px] text-white">
+                    <span class="w-1.5 h-1.5 mt-2 bg-white rounded-full"></span>
+                    ট্রাক ও কাভার্ড ভ্যান মালিক
+                </li>
+                <li
+                    class="flex items-start gap-2 font-['Inter'] font-normal text-[20px] leading-[32px] tracking-[-0.44px] text-white">
+                    <span class="w-1.5 h-1.5 mt-2 bg-white rounded-full"></span>
+                    কর্পোরেট পরিবহন সেবা
+                </li>
+                <li
+                    class="flex items-start gap-2 font-['Inter'] font-normal text-[20px] leading-[32px] tracking-[-0.44px] text-white">
+                    <span class="w-1.5 h-1.5 mt-2 bg-white rounded-full"></span>
+                    বাস ও রুট অপারেটর
+                </li>
+                <li
+                    class="flex items-start gap-2 font-['Inter'] font-normal text-[20px] leading-[32px] tracking-[-0.44px] text-white">
+                    <span class="w-1.5 h-1.5 mt-2 bg-white rounded-full"></span>
+                     লজিস্টিক কোম্পানি
+                </li>
+                <li
+                    class="flex items-start gap-2 font-['Inter'] font-normal text-[20px] leading-[32px] tracking-[-0.44px] text-white">
+                    <span class="w-1.5 h-1.5 mt-2 bg-white rounded-full"></span>
+                    রেন্ট-এ-কার ব্যবসা
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="h-[260px] md:h-[400px] order-1 md:order-2">
+            <img src="tripkhata_section_image_four.jpg" class="w-full h-full object-cover">
+        </div>
+
+    </div>
+</section>
+
+
+
+<section id="packages" class="bg-white py-20 px-6 hidden md:block">
+    <div class="max-w-6xl mx-auto">
+
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-extrabold text-[#282727] mb-6">
+                সহজ ও সাশ্রয়ী প্যাকেজ
+            </h2>
+            <p class="text-gray-600 text-lg md:text-[20px] max-w-3xl mx-auto leading-relaxed">
+                আপনার ব্যবসার জন্য নিখুঁত পরিকল্পনা চয়ন করুন। সমস্ত প্ল্যানে কোনো ক্রেডিট কার্ডের
+                প্রয়োজন ছাড়াই ১৪ দিনের বিনামূল্যে ট্রায়াল অন্তর্ভুক্ত।
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+
+            <div class="group border border-gray-200 rounded-[2rem] p-8 flex flex-col bg-white 
+            transition duration-300 relative overflow-hidden">
+                <div class="absolute inset-0 bg-[linear-gradient(180deg,_#FF5A00_0%,_#FF7700_100%)] opacity-0 
+                group-hover:opacity-100 transition duration-300 rounded-[2rem] z-0"></div>
+
+                <div class="relative z-10 flex flex-col h-full">
+                    <h3
+                        class="text-[20px] md:text-[24px] font-bold text-white md:text-[#282727] group-hover:text-white">
+                        Starter</h3>
+                    <p class="text-[15px] md:text-sm text-[#4A5565] mb-6 group-hover:text-white">ছোট ব্যবসার জন্য</p>
+
+                    <div
+                        class="text-[24px] font-bold mb-8 text-white group-hover:text-white md:text-[35px]  md:text-[#282727]">
+                        TK ৯৯৯
+                        <span
+                            class="text-[15px] md:text-lg font-normal text-[#4A5565] group-hover:text-white">/মাস</span>
+                    </div>
+
+                    <ul class="space-y-4 mb-10 flex-grow">
+                        <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
+                            <span class="text-[#FF6900]">✓</span> 5টি পর্যন্ত যানবাহন
+                        </li>
+                        <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
+                            <span class="text-[#FF6900]">✓</span> বেসিক ট্রিপ ট্র্যাকিং
+                        </li>
+                        <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
+                            <span class="text-[#FF6900]">✓</span> ডিজিটাল রেকর্ড ব্যবস্থাপনা
+                        </li>
+                        <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
+                            <span class="text-[#FF6900]">✓</span> মোবাইল অ্যাপ অ্যাক্সেস
+                        </li>
+                    </ul>
+
+                    <button class="w-full text-white py-4 rounded-full font-bold text-lg transition
+                           bg-[linear-gradient(180deg,_#FF5A00_0%,_#FF7700_100%)] 
+                           group-hover:bg-none group-hover:bg-white group-hover:text-[#ff6b00]">
+                        যোগাযোগ করুন
+                    </button>
+                </div>
+            </div>
+
+            <div class="group relative border border-gray-200 rounded-[2rem] p-8 flex flex-col bg-white 
+            transition duration-300 overflow-hidden">
+                <div class="absolute inset-0 bg-[linear-gradient(180deg,_#FF5A00_0%,_#FF7700_100%)] opacity-0 
+                group-hover:opacity-100 transition duration-300 rounded-[2rem] z-0"></div>
+
+                <div class="absolute -top-3 left-1/2 -translate-x-1/2 z-20
+                bg-black text-white text-[12px] py-1 px-4 rounded-full font-bold whitespace-nowrap">
+                    সবচেয়ে জনপ্রিয়
+                </div>
+
+                <div class="relative z-10 flex flex-col h-full">
+                    <h3
+                        class="text-[20px] md:text-[24px] font-bold text-white md:text-[#282727] group-hover:text-white">
+                        Business</h3>
+                    <p class="text-[15px] md:text-sm text-[#4A5565] mb-6 group-hover:text-white">নিয়মিত ট্রিপের জন্য
+                    </p>
+
+                    <div
+                        class="text-[24px] font-bold mb-8 text-white group-hover:text-white md:text-[35px]  md:text-[#282727]">
+                        TK ২৪৯৯
+                        <span
+                            class="text-[15px] md:text-lg font-normal text-[#4A5565] group-hover:text-white">/মাস</span>
+                    </div>
+
+                    <ul class="space-y-4 mb-10 flex-grow">
+                        <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
+                            <span class="text-[#FF6900]">✓</span> 25টি পর্যন্ত যানবাহন
+                        </li>
+                        <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
+                            <span class="text-[#FF6900]">✓</span> রিয়েল-টাইম জিপিএস
+                        </li>
+                        <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
+                            <span class="text-[#FF6900]">✓</span> উন্নত বিশ্লেষণ
+                        </li>
+                        <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
+                            <span class="text-[#FF6900]">✓</span> অগ্রাধিকার সমর্থন
+                        </li>
+                    </ul>
+
+                    <button class="w-full text-white py-4 rounded-full font-bold text-lg transition
+                           bg-[linear-gradient(180deg,_#FF5A00_0%,_#FF7700_100%)] 
+                           group-hover:bg-none group-hover:bg-white group-hover:text-[#ff6b00]">
+                        যোগাযোগ করুন
+                    </button>
+                </div>
+            </div>
+
+            <div class="group border border-gray-200 rounded-[2rem] p-8 flex flex-col bg-white 
+            transition duration-300 relative overflow-hidden">
+                <div class="absolute inset-0 bg-[linear-gradient(180deg,_#FF5A00_0%,_#FF7700_100%)] opacity-0 
+                group-hover:opacity-100 transition duration-300 rounded-[2rem] z-0"></div>
+
+                <div class="relative z-10 flex flex-col h-full">
+                    <h3
+                        class="text-[20px] md:text-[24px] font-bold text-white md:text-[#282727] group-hover:text-white">
+                        Enterprise
+                    </h3>
+                    <p class="text-[15px] md:text-sm text-[#4A5565] mb-6 group-hover:text-white">বড় ফ্লিটের জন্য</p>
+
+                    <div
+                        class="text-[24px] font-bold mb-8 text-white group-hover:text-white md:text-[35px]  md:text-[#282727]">
+                        TK ৪৯৯৯
+                        <span
+                            class="text-[15px] md:text-lg font-normal text-[#4A5565] group-hover:text-white">/মাস</span>
+                    </div>
+
+                    <ul class="space-y-4 mb-10 flex-grow">
+                        <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
+                            <span class="text-[#FF6900]">✓</span> সীমাহীন যানবাহন
+                        </li>
+                        <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
+                            <span class="text-[#FF6900]">✓</span> অ্যাকাউন্ট ম্যানেজার
+                        </li>
+                        <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
+                            <span class="text-[#FF6900]">✓</span> কাস্টম ইন্টিগ্রেশন
+                        </li>
+                        <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
+                            <span class="text-[#FF6900]">✓</span> উন্নত নিরাপত্তা
+                        </li>
+                    </ul>
+
+                    <button class="w-full text-white py-4 rounded-full font-bold text-lg transition
+                           bg-[linear-gradient(180deg,_#FF5A00_0%,_#FF7700_100%)] 
+                           group-hover:bg-none group-hover:bg-white group-hover:text-[#ff6b00]">
+                        যোগাযোগ করুন
+                    </button>
+                </div>
+            </div>
+
+            <div class="group border border-gray-200 rounded-[2rem] p-8 flex flex-col bg-white 
+            transition duration-300 relative overflow-hidden">
+                <div class="absolute inset-0 bg-[linear-gradient(180deg,_#FF5A00_0%,_#FF7700_100%)] opacity-0 
+                group-hover:opacity-100 transition duration-300 rounded-[2rem] z-0"></div>
+
+                <div class="relative z-10 flex flex-col h-full">
+                    <h3
+                        class="text-[20px] md:text-[24px] font-bold text-white md:text-[#282727] group-hover:text-white">
+                        Enterprise
+                        Pro</h3>
+                    <p class="text-[15px] md:text-sm text-[#4A5565] mb-6 group-hover:text-white">বড় ফ্লিটের জন্য</p>
+
+                    <div
+                        class="text-[24px] font-bold mb-8 text-white group-hover:text-white md:text-[35px]  md:text-[#282727]">
+                        TK ৯৯৯৯
+                        <span
+                            class="text-[15px] md:text-lg font-normal text-[#4A5565] group-hover:text-white">/মাস</span>
+                    </div>
+
+                    <ul class="space-y-4 mb-10 flex-grow">
+                        <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
+                            <span class="text-[#FF6900]">✓</span> সীমাহীন যানবাহন
+                        </li>
+                        <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
+                            <span class="text-[#FF6900]">✓</span> ডেডিকেটেড ম্যানেজার
+                        </li>
+                        <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
+                            <span class="text-[#FF6900]">✓</span> হোয়াইট-লেবেল অপশন
+                        </li>
+                        <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
+                            <span class="text-[#FF6900]">✓</span> ফুল API সাপোর্ট
+                        </li>
+                    </ul>
+
+                    <button class="w-full text-white py-4 rounded-full font-bold text-lg transition
+                           bg-[linear-gradient(180deg,_#FF5A00_0%,_#FF7700_100%)] 
+                           group-hover:bg-none group-hover:bg-white group-hover:text-[#ff6b00]">
+                        যোগাযোগ করুন
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ================= MOBILE VERSION ================= -->
+<section class="bg-white py-12 px-4 hide-md">
+    <div class="max-w-7xl mx-auto">
+
+        <!-- Heading -->
+        <div class="text-center mb-10">
+            <h2
+                class="font-['Inter'] font-bold text-[32px] leading-[48px] tracking-[0.35px] text-[#282727] text-center mb-[16px]">
+                সহজ ও সাশ্রয়ী প্যাকেজ
+            </h2>
+            <p
+                class="font-['Inter'] font-normal text-[20px] leading-[30px] tracking-[-0.45px] text-gray-600 text-center">
+                আপনার ব্যবসার জন্য নিখুঁত পরিকল্পনা চয়ন করুন। সমস্ত প্ল্যানে কোনো ক্রেডিট কার্ডের
+                প্রয়োজন ছাড়াই ১৪ দিনের বিনামূল্যে ট্রায়াল অন্তর্ভুক্ত।
+            </p>
+        </div>
+
+        <!-- Cards -->
+        <div class="grid grid-cols-2 gap-4">
+
+            <div class="border border-gray-200 rounded-2xl p-4 text-left 
+        transition duration-300 cursor-pointer
+        hover:bg-orange-500 hover:[&_*]:text-white hover:scale-105">
+
+                <h3 class="text-[20px] font-bold leading-[50px] tracking-[0.07px] font-['Inter']">Starter</h3>
+                <p
+                    class="text-[14px] text-[#4A5565] mb-2 font-semibold leading-[30px] tracking-[-0.15px] font-['Inter']">
+                    ছোট ব্যবসার জন্য</p>
+                <div class="text-[21px] font-bold leading-[33.82px] tracking-[0.25px] font-['Inter']">
+                    TK ৯৯৯ <span
+                        class="text-[13px] text-[#4A5565] font-semibold leading-[19.73px] tracking-[-0.31px]">/মাস</span>
+                </div>
+            </div>
+
+            <div class="relative border border-gray-200 rounded-2xl p-4 text-left 
+        transition duration-300 cursor-pointer
+        hover:bg-orange-500 hover:[&_*]:text-white hover:scale-105">
+
+                <div class="absolute -top-2 left-1/2 -translate-x-1/2 
+            bg-black text-white text-[12px] px-3 py-1 rounded-full whitespace-nowrap">
+                    সবচেয়ে জনপ্রিয়
+                </div>
+
+                <h3 class="text-[20px] font-semibold leading-[50px] tracking-[0.07px] font-['Inter']">Business</h3>
+                <p
+                    class="text-[14px] text-[#4A5565] mb-2 font-semibold leading-[30px] tracking-[-0.15px] font-['Inter']">
+                    নিয়মিত ট্রিপের জন্য</p>
+                <div class="text-[21px] font-semibold leading-[33.82px] tracking-[0.25px] font-['Inter']">
+                    TK ২৪৯৯ <span
+                        class="text-[13px] text-[#4A5565] font-regular leading-[19.73px] tracking-[-0.31px]">/মাস</span>
+                </div>
+            </div>
+
+            <div class="border border-gray-200 rounded-2xl p-4 text-left 
+        transition duration-300 cursor-pointer
+        hover:bg-orange-500 hover:[&_*]:text-white hover:scale-105">
+
+                <h3 class="text-[20px] font-semibold leading-[50px] tracking-[0.07px] font-['Inter']">Enterprise</h3>
+                <p
+                    class="text-[14px] text-[#4A5565] mb-2 font-semibold leading-[30px] tracking-[-0.15px] font-['Inter']">
+                    বড় ফ্লিটের জন্য</p>
+                <div class="text-[21px] font-semibold leading-[33.82px] tracking-[0.25px] font-['Inter']">
+                    TK ৪৯৯৯ <span
+                        class="text-[13px] text-[#4A5565] font-regular leading-[19.73px] tracking-[-0.31px]">/মাস</span>
+                </div>
+            </div>
+
+            <div class="border border-gray-200 rounded-2xl p-4 text-left 
+        transition duration-300 cursor-pointer
+        hover:bg-orange-500 hover:[&_*]:text-white hover:scale-105">
+
+                <h3 class="text-[20px] font-semibold leading-[50px] tracking-[0.07px] font-['Inter']">Enterprise Pro
+                </h3>
+                <p class="text-[14px] text-[#4A5565] mb-2 font-normal leading-[30px] tracking-[-0.15px] font-['Inter']">
+                    বড় ফ্লিটের জন্য</p>
+                <div class="text-[21px] font-semibold leading-[33.82px] tracking-[0.25px] font-['Inter']">
+                    TK ৯৯৯৯ <span
+                        class="text-[13px] text-[#4A5565] font-normal leading-[19.73px] tracking-[-0.31px]">/মাস</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<section id="contact" class="bg-[#f7f5f2] py-12 md:pt-20 md:pb-[60px] px-2 sm:px-6">
+    <div class="max-w-6xl mx-auto w-[95%] lg:w-full flex flex-col lg:flex-row items-start gap-10 ">
+        <div class="w-full lg:w-5/12 space-y-8">
+            <div class="text-center md:text-left">
+                <h2
+                    class="text-[32px] font-bold leading-[48px] tracking-[0.35px] text-[#282727] text-center font-['Inter'] md:text-[48px] md:text-left md:mb-1">
+                    যোগাযোগ করুন
+                </h2>
+
+                <p
+                    class="pt-[20px] text-[20px] font-normal leading-[28px] tracking-[-0.45px] text-gray-600 text-center font-['Inter'] md:text-[20px] md:text-left md:mb-1">
+                    প্রশ্ন আছে? আমরা আপনার কাছ থেকে শুনতে চাই আমাদের একটি বার্তা প্রেরণ করুন এবং আমরা যত তাড়াতাড়ি
+                    সম্ভব সাড়া দেব
+                </p>
+            </div>
+
+            <div class="relative">
+                <img src="tripkhata_section_image_five.png" alt="Contact Illustration"
+                    class="w-full max-w-md mx-auto" />
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+        <div class="w-full max-w-2xl">
+            <div class="bg-white p-5 rounded-xl shadow-md mx-auto">
+
+                <form id="contactForm" class="space-y-4">
+
+                    <!-- Name -->
+                    <div>
+                        <label
+                            class="block text-[14px] font-semibold leading-[20px] tracking-[-0.15px] mb-1 md:mb-3 font-['Inter']">
+                            পুরো নাম *
+                        </label>
+                        <input type="text" name="name" required placeholder="আপনার নাম লিখুন"
+                            class="w-full px-3 py-2.5 border rounded-lg text-[16px] font-normal leading-[100%] tracking-[-0.31px] font-['Inter']">
+                    </div>
+
+                    <!-- Email -->
+                    <div>
+                        <label
+                            class="block text-[14px] font-semibold leading-[20px] tracking-[-0.15px] mb-1 md:mb-3 font-['Inter']">
+                            ইমেইল ঠিকানা *
+                        </label>
+                        <input type="email" name="email" required placeholder="আপনার@ইমেইল.com"
+                            class="w-full px-3 py-2.5 border rounded-lg text-[16px] font-normal leading-[100%] tracking-[-0.31px] font-['Inter']">
+                    </div>
+
+                    <!-- Phone -->
+                    <div>
+                        <label
+                            class="block text-[14px] font-semibold leading-[20px] tracking-[-0.15px] mb-1 md:mb-3 font-['Inter']">
+                            ফোন নম্বর
+                        </label>
+                        <input type="tel" name="phone" placeholder="+৮৮ ০১৭XXXXXXXX"
+                            class="w-full px-3 py-2.5 border rounded-lg text-[16px] font-normal leading-[100%] tracking-[-0.31px] font-['Inter']">
+                    </div>
+
+                    <!-- Company -->
+                    <div>
+                        <label
+                            class="block text-[14px] font-semibold leading-[20px] tracking-[-0.15px] mb-1 md:mb-3 font-['Inter']">
+                            কোম্পানির নাম
+                        </label>
+                        <input type="text" name="company" placeholder="আপনার কোম্পানির নাম"
+                            class="w-full px-3 py-2.5 border rounded-lg text-[16px] font-normal leading-[100%] tracking-[-0.31px] font-['Inter']">
+                    </div>
+
+                    <!-- Message -->
+                    <div>
+                        <label
+                            class="block text-[14px] font-semibold leading-[20px] tracking-[-0.15px] mb-1 md:mb-3 font-['Inter']">
+                            বার্তা *
+                        </label>
+                        <textarea name="message" required rows="4"
+                            placeholder="আপনার পরিবহন ব্যবসা সম্পর্কে আমাদের বলুন..."
+                            class="w-full px-3 py-2.5 border rounded-lg text-[16px] font-normal leading-[100%] tracking-[-0.31px] font-['Inter']"></textarea>
+                    </div>
+
+                    <!-- Button -->
+                    <button type="submit"
+                        class="w-full bg-orange-500 text-white py-2.5 rounded-full text-[16px] font-bold font-['Inter'] md:text-[20px]">
+                        বার্তা পাঠান
+                    </button>
+
+                    <!-- Footer -->
+                    <p class="text-center text-[12px] text-[#4A5565] mt-2 font-['Inter'] md:text-[14px]">
+                        আমরা ২৪ ঘন্টার মধ্যে আপনার সাথে যোগাযোগ করব
+                    </p>
+
+                    <p id="status" class="text-center text-[14px]"></p>
+
+                </form>
+            </div>
+        </div>
+
+        <script>
+            // ✅ Initialize EmailJS with your PUBLIC KEY
+            (function () {
+                emailjs.init("AdfsPNldixpFR18Ff"); // আপনার Public Key
+            })();
+
+            const form = document.getElementById("contactForm");
+            const statusText = document.getElementById("status");
+
+            form.addEventListener("submit", function (e) {
+                e.preventDefault();
+
+                statusText.innerText = "পাঠানো হচ্ছে...";
+                statusText.className = "text-blue-500 text-center";
+
+                const templateParams = {
+                    name: form.name.value,
+                    email: form.email.value,
+                    phone: form.phone.value,
+                    company: form.company.value,
+                    message: form.message.value
+                };
+
+                emailjs.send("service_2lkr9zg", "template_w62nyvh", templateParams)
+                    .then(function () {
+                        statusText.innerText = "✅ বার্তা সফলভাবে পাঠানো হয়েছে!";
+                        statusText.className = "text-green-600 text-center";
+                        form.reset();
+                    })
+                    .catch(function (error) {
+                        console.error(error);
+                        statusText.innerText = "❌ কিছু ভুল হয়েছে, আবার চেষ্টা করুন।";
+                        statusText.className = "text-red-600 text-center";
+                    });
+            });
+        </script>
+
+
+    </div>
+</section>
+
+
+<footer class="bg-[#1a1a1a] text-white py-12 px-6 hidden md:block md:py-20">
+    <div class="max-w-6xl mx-auto flex flex-col items-center lg:grid lg:grid-cols-4 lg:items-start gap-12">
+
+        <div class="space-y-4 flex flex-col items-center lg:items-start text-center lg:text-left lg:col-span-1">
+            <div class="flex items-center gap-2">
+                <img src="logo_trip.png" alt="TripKhata Logo" class="w-[290px] h-[50px] object-contain">
+            </div>
+
+            <p class="text-[18px] font-medium leading-[150%] max-w-sm font-['Inter']">
+                TripKhata – আপনার পরিবহন ব্যবসার ডিজিটাল হিসাবের সঙ্গী
+            </p>
+
+        </div>
+
+        <div class="text-center lg:text-left">
+            <h4
+                class="text-[18px] font-bold leading-[100%] mb-6 border-b-2 border-transparent lg:inline-block font-['Roboto']">
+                পেজসমূহ
+            </h4>
+            <ul class="space-y-4 text-[#282727] text-[14px] font-normal leading-[100%] font-['Roboto']">
+                <li><a href="#" class="hover:text-white transition-colors">হোম</a></li>
+                <li><a href="#" class="hover:text-white transition-colors">সেবাসমূহ</a></li>
+                <li><a href="#" class="hover:text-white transition-colors">প্যাকেজসমূহ</a></li>
+                <li><a href="#" class="hover:text-white transition-colors">ব্র্যান্ডসমূহ</a></li>
+                <li><a href="#" class="hover:text-white transition-colors">যোগাযোগ</a></li>
+            </ul>
+        </div>
+
+        <div class="text-center lg:text-left">
+            <h4 class="text-[18px] font-bold leading-[100%] mb-6 font-['Roboto']">
+                যোগাযোগ করুন
+            </h4>
+            <ul class="space-y-6 text-[#282727] text-[14px] font-normal leading-[100%] font-['Roboto']">
+                <li class="flex flex-col lg:flex-row items-center lg:items-start gap-3">
+                    <img src="call.png" />
+                    <span>(406) 555-0120</span>
+                </li>
+                <li class="flex flex-col lg:flex-row items-center lg:items-start gap-3">
+                    <img src="email.png" />
+                    <span class="break-all">info@tripkhata.com</span>
+                </li>
+                <li class="flex flex-col lg:flex-row items-center lg:items-start gap-3">
+                    <img src="location.png" />
+                    <span class="max-w-[250px] leading-[150%]">৩য় তলা, টি-১৮১, বাড্ডা হাই স্কুল রোড, বাড্ডা, ঢাকা-১২১২</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="flex flex-col items-end w-full">
+            <h4 class="text-[18px] font-bold leading-[100%] mb-6 font-['Roboto']" style="transform: translateX(-69px);">
+                সামাজিক মাধ্যম
+            </h4>
+
+                <div class="flex justify-center items-center gap-6 mt-3 mx-auto">
+        <a href="#" class="transition-transform duration-200 hover:scale-110" aria-label="Facebook">
+            <svg width="36" height="36" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M1.5625 21.3542C1.5625 12.0243 1.5625 7.35935 4.46092 4.46092C7.35935 1.5625 12.0243 1.5625 21.3542 1.5625C30.684 1.5625 35.349 1.5625 38.2475 4.46092C41.1458 7.35935 41.1458 12.0243 41.1458 21.3542C41.1458 30.684 41.1458 35.349 38.2475 38.2475C35.349 41.1458 30.684 41.1458 21.3542 41.1458C12.0243 41.1458 7.35935 41.1458 4.46092 38.2475C1.5625 35.349 1.5625 30.684 1.5625 21.3542Z"
+                    stroke="white" stroke-width="3.125" stroke-linejoin="round" />
+                <path
+                    d="M31.6176 13.0762H25.4825C23.3078 13.0762 21.5404 14.8306 21.5243 17.0052L21.3466 40.9937M17.3584 25.5249H27.364"
+                    stroke="white" stroke-width="3.125" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </a>
+
+        <a href="#" class="transition-transform duration-200 hover:scale-110" aria-label="Instagram">
+            <svg width="40" height="40" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M5.2085 24.9997C5.2085 15.6698 5.2085 11.0049 8.10692 8.10643C11.0053 5.20801 15.6703 5.20801 25.0002 5.20801C34.33 5.20801 38.995 5.20801 41.8934 8.10643C44.7918 11.0049 44.7918 15.6698 44.7918 24.9997C44.7918 34.3296 44.7918 38.9945 41.8934 41.8929C38.995 44.7913 34.33 44.7913 25.0002 44.7913C15.6703 44.7913 11.0053 44.7913 8.10692 41.8929C5.2085 38.9945 5.2085 34.3296 5.2085 24.9997Z"
+                    stroke="white" stroke-width="3.125" stroke-linejoin="round" />
+                <path
+                    d="M34.375 25C34.375 30.1777 30.1777 34.375 25 34.375C19.8223 34.375 15.625 30.1777 15.625 25C15.625 19.8223 19.8223 15.625 25 15.625C30.1777 15.625 34.375 19.8223 34.375 25Z"
+                    stroke="white" stroke-width="3.125" />
+                <path d="M36.4746 13.542L36.4559 13.542" stroke="white" stroke-width="4.16667" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+        </a>
+
+        <a href="#" class="transition-transform duration-200 hover:scale-110" aria-label="LinkedIn">
+            <svg width="40" height="40" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14.5835 20.833V35.4163" stroke="white" stroke-width="3.125" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                <path
+                    d="M22.917 27.083V35.4163M22.917 27.083C22.917 23.6312 25.7152 20.833 29.167 20.833C32.6188 20.833 35.417 23.6312 35.417 27.083V35.4163M22.917 27.083V20.833"
+                    stroke="white" stroke-width="3.125" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M14.6 14.583L14.5813 14.583" stroke="white" stroke-width="4.16667" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                <path
+                    d="M5.2085 24.9997C5.2085 15.6698 5.2085 11.0049 8.10692 8.10643C11.0053 5.20801 15.6703 5.20801 25.0002 5.20801C34.33 5.20801 38.995 5.20801 41.8934 8.10643C44.7918 11.0049 44.7918 15.6698 44.7918 24.9997C44.7918 34.3296 44.7918 38.9945 41.8934 41.8929C38.995 44.7913 34.33 44.7913 25.0002 44.7913C15.6703 44.7913 11.0053 44.7913 8.10692 41.8929C5.2085 38.9945 5.2085 34.3296 5.2085 24.9997Z"
+                    stroke="white" stroke-width="3.125" stroke-linejoin="round" />
+            </svg>
+        </a>
+    </div>
+        </div>
+
+    </div>
+</footer>
+
+
+<footer class="bg-[#1a1a1a] text-white py-12 px-6 block lg:hidden">
+    <div class="max-w-7xl mx-auto flex flex-col items-center">
+
+        <div class="flex flex-col items-center text-center space-y-6 mb-10">
+            <img src="logo_trip.png" alt="TripKhata Logo" class="w-[290px] h-[50px] object-contain">
+            <p class="text-lg font-medium">
+                TripKhata – আপনার পরিবহন ব্যবসার ডিজিটাল হিসাবের সঙ্গী
+            </p>
+
+        </div>
+
+        <div class="w-full grid grid-cols-2 gap-4 pt-10">
+
+            <div class="space-y-4">
+                <h4 class="text-xl font-bold">Pages</h4>
+                <ul class="space-y-3 text-sm text-[#282727]">
+                    <li><a href="#" class="hover:text-white">হোম</a></li>
+                    <li><a href="#" class="hover:text-white">সেবাসমূহ</a></li>
+                    <li><a href="#" class="hover:text-white">প্যাকেজসমূহ</a></li>
+                    <li><a href="#" class="hover:text-white">ব্র্যান্ডসমূহ</a></li>
+                    <li><a href="#" class="hover:text-white">যোগাযোগ</a></li>
+                </ul>
+            </div>
+
+            <div class="space-y-4">
+                <h4 class="text-xl font-bold">Contact</h4>
+                <ul class="space-y-4 text-sm text-[#282727]">
+                    <li class="flex items-start gap-2">
+                        <img src="call.png" />
+                        <span>(406) 555-0120</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <img src="email.png" />
+                        <span class="break-all">info@tripkhata.com</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <img src="location.png" />
+                        <span>৩য় তলা, টি-১৮১, বাড্ডা হাই স্কুল রোড, বাড্ডা, ঢাকা-১২১২</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="max-w-7xl mx-auto border-t mt-12 pt-8 text-center text-[#282727] text-xs">
+
+    </div>
+    <div class="flex justify-center items-center gap-6 mt-3 mx-auto">
+        <a href="#" class="transition-transform duration-200 hover:scale-110" aria-label="Facebook">
+            <svg width="36" height="36" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M1.5625 21.3542C1.5625 12.0243 1.5625 7.35935 4.46092 4.46092C7.35935 1.5625 12.0243 1.5625 21.3542 1.5625C30.684 1.5625 35.349 1.5625 38.2475 4.46092C41.1458 7.35935 41.1458 12.0243 41.1458 21.3542C41.1458 30.684 41.1458 35.349 38.2475 38.2475C35.349 41.1458 30.684 41.1458 21.3542 41.1458C12.0243 41.1458 7.35935 41.1458 4.46092 38.2475C1.5625 35.349 1.5625 30.684 1.5625 21.3542Z"
+                    stroke="white" stroke-width="3.125" stroke-linejoin="round" />
+                <path
+                    d="M31.6176 13.0762H25.4825C23.3078 13.0762 21.5404 14.8306 21.5243 17.0052L21.3466 40.9937M17.3584 25.5249H27.364"
+                    stroke="white" stroke-width="3.125" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </a>
+
+        <a href="#" class="transition-transform duration-200 hover:scale-110" aria-label="Instagram">
+            <svg width="40" height="40" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M5.2085 24.9997C5.2085 15.6698 5.2085 11.0049 8.10692 8.10643C11.0053 5.20801 15.6703 5.20801 25.0002 5.20801C34.33 5.20801 38.995 5.20801 41.8934 8.10643C44.7918 11.0049 44.7918 15.6698 44.7918 24.9997C44.7918 34.3296 44.7918 38.9945 41.8934 41.8929C38.995 44.7913 34.33 44.7913 25.0002 44.7913C15.6703 44.7913 11.0053 44.7913 8.10692 41.8929C5.2085 38.9945 5.2085 34.3296 5.2085 24.9997Z"
+                    stroke="white" stroke-width="3.125" stroke-linejoin="round" />
+                <path
+                    d="M34.375 25C34.375 30.1777 30.1777 34.375 25 34.375C19.8223 34.375 15.625 30.1777 15.625 25C15.625 19.8223 19.8223 15.625 25 15.625C30.1777 15.625 34.375 19.8223 34.375 25Z"
+                    stroke="white" stroke-width="3.125" />
+                <path d="M36.4746 13.542L36.4559 13.542" stroke="white" stroke-width="4.16667" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+        </a>
+
+        <a href="#" class="transition-transform duration-200 hover:scale-110" aria-label="LinkedIn">
+            <svg width="40" height="40" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14.5835 20.833V35.4163" stroke="white" stroke-width="3.125" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                <path
+                    d="M22.917 27.083V35.4163M22.917 27.083C22.917 23.6312 25.7152 20.833 29.167 20.833C32.6188 20.833 35.417 23.6312 35.417 27.083V35.4163M22.917 27.083V20.833"
+                    stroke="white" stroke-width="3.125" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M14.6 14.583L14.5813 14.583" stroke="white" stroke-width="4.16667" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                <path
+                    d="M5.2085 24.9997C5.2085 15.6698 5.2085 11.0049 8.10692 8.10643C11.0053 5.20801 15.6703 5.20801 25.0002 5.20801C34.33 5.20801 38.995 5.20801 41.8934 8.10643C44.7918 11.0049 44.7918 15.6698 44.7918 24.9997C44.7918 34.3296 44.7918 38.9945 41.8934 41.8929C38.995 44.7913 34.33 44.7913 25.0002 44.7913C15.6703 44.7913 11.0053 44.7913 8.10692 41.8929C5.2085 38.9945 5.2085 34.3296 5.2085 24.9997Z"
+                    stroke="white" stroke-width="3.125" stroke-linejoin="round" />
+            </svg>
+        </a>
+    </div>
+</footer>
+
+
+</body>
+
+</html>
