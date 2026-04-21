@@ -947,7 +947,7 @@
             <div class="flex justify-center items-center w-full">
 
                 <button
-                    class="mb-[50px] mt-[0px] md:mt-[31px] w-[171px] h-[44px] sm:w-auto sm:h-auto bg-[#282727] text-white text-[15px] font-bold rounded-full hover:bg-black transition-all flex items-center justify-center text-center leading-tight md:mb-[160px]">
+                    class="mb-[50px] mt-[0px] md:mt-[31px] w-[171px] md:w-[187px] h-[44px] sm:w-auto sm:h-auto bg-[#282727] text-white text-[15px] font-bold rounded-full hover:bg-black transition-all flex items-center justify-center text-center leading-tight md:mb-[120px] md:p-[16px]">
                     লাইভ ডেমো দেখুন
                 </button>
 
@@ -1046,302 +1046,252 @@
 
 
 
-<section id="packages" class="bg-white py-20 px-6 hidden md:block">
+<section id="packages" class="bg-white py-10 md:py-20 px-4 md:px-[48px]">
     <div class="max-w-6xl mx-auto">
 
-        <div class="text-center mb-16">
-            <h2 class="text-4xl md:text-5xl font-extrabold text-[#282727] mb-6">
+        <div class="text-center mb-10 md:mb-16">
+            <h2 class="text-[28px] md:text-5xl font-extrabold text-[#282727] mb-4">
                 সহজ ও সাশ্রয়ী প্যাকেজ
             </h2>
-            <p class="text-[#4A5565] text-lg md:text-[20px] max-w-3xl mx-auto leading-relaxed">
-                আপনার ব্যবসার জন্য নিখুঁত পরিকল্পনা চয়ন করুন। সমস্ত প্ল্যানে কোনো ক্রেডিট কার্ডের
-                প্রয়োজন ছাড়াই ১৪ দিনের বিনামূল্যে ট্রায়াল অন্তর্ভুক্ত।
+            <p class="text-[#4A5565] text-sm md:text-[20px] max-w-2xl mx-auto leading-relaxed">
+                আপনার ব্যবসার জন্য নিখুঁত পরিকল্পনা চয়ন করুন। সমস্ত প্ল্যানে ১৪ দিনের বিনামূল্যে ট্রায়াল অন্তর্ভুক্ত।
             </p>
         </div>
 
-        <div class="w-full border-b border-gray-200">
-            <div id="tabs" class="relative flex w-full font-inter">
-
-                <button class="tab flex-1 pb-3 text-orange-500 font-semibold text-[24px] leading-[150%] text-center text-[#282727]">
+        <div class="w-full border-b border-gray-200 mb-8 md:mb-[40px] overflow-x-auto no-scrollbar">
+            <div id="tabs" class="relative flex min-w-[450px] md:min-w-full font-inter">
+                <button class="tab flex-1 pb-3 text-orange-500 font-semibold text-[16px] md:text-[24px] text-center"
+                    data-discount="0">
                     মাসিক পেমেন্ট
                 </button>
-
-                <button class="tab flex-1 pb-3 font-semibold text-[24px] leading-[150%] text-center text-[#282727]">
-                    ৬ মাস পেমেন্ট (১০% ছাড়)
+                <button class="tab flex-1 pb-3 font-semibold text-[16px] md:text-[24px] text-center text-[#282727]"
+                    data-discount="0.10">
+                    ৬ মাস (১০% ছাড়)
                 </button>
-
-                <button class="tab flex-1 pb-3 font-semibold text-[24px] leading-[150%] text-center text-[#282727]">
-                    ১ বছর পেমেন্ট (২০% ছাড়)
+                <button class="tab flex-1 pb-3 font-semibold text-[16px] md:text-[24px] text-center text-[#282727]"
+                    data-discount="0.20">
+                    ১ বছর (২০% ছাড়)
                 </button>
-
-                <!-- Underline -->
-                <div id="underline"
-                    class="absolute bottom-0 h-0.5 bg-orange-500 transition-all duration-300 ease-in-out">
+                <div id="underline" class="absolute bottom-0 h-1 bg-orange-500 transition-all duration-300 ease-in-out">
                 </div>
-
             </div>
         </div>
 
-        <script>
-            const tabs = document.querySelectorAll('.tab');
-            const underline = document.getElementById('underline');
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 items-stretch">
 
-            function moveUnderline(el) {
-                const rect = el.getBoundingClientRect();
-                const parentRect = el.parentElement.getBoundingClientRect();
-
-                underline.style.width = rect.width + 'px';
-                underline.style.transform = `translateX(${rect.left - parentRect.left}px)`;
-            }
-
-            // Initialize
-            moveUnderline(tabs[0]);
-
-            tabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-
-                    // Reset colors
-                    tabs.forEach(t => {
-                        t.classList.remove('text-orange-500');
-                        t.classList.add('text-[#282727]');
-                    });
-
-                    // Active tab
-                    tab.classList.remove('text-[#282727]');
-                    tab.classList.add('text-orange-500');
-
-                    moveUnderline(tab);
-                });
-            });
-
-            // Fix on resize
-            window.addEventListener('resize', () => {
-                const active = document.querySelector('.text-orange-500');
-                moveUnderline(active);
-            });
-        </script>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
-
-            <div class="group border border-gray-200 rounded-[2rem] p-8 flex flex-col bg-white 
-            transition duration-300 relative overflow-hidden">
-                <div class="absolute inset-0 bg-[linear-gradient(180deg,_#FF5A00_0%,_#FF7700_100%)] opacity-0 
-                group-hover:opacity-100 transition duration-300 rounded-[2rem] z-0"></div>
-
+            <div
+                class="group relative border border-gray-200 rounded-[1.5rem] md:rounded-[2rem] p-4 md:p-8 flex flex-col bg-white hover:bg-orange-600 transition-all duration-300 overflow-hidden">
                 <div class="relative z-10 flex flex-col h-full">
-                    <h3
-                        class="text-[20px] md:text-[24px] font-bold text-white md:text-[#282727] group-hover:text-white">
-                        Starter</h3>
-                    <p class="text-[15px] md:text-sm text-[#4A5565] mb-6 group-hover:text-white">ছোট ব্যবসার জন্য</p>
-
+                    <h3 class="text-[18px] md:text-[24px] font-bold text-[#282727] group-hover:text-white">বেসিক</h3>
+                    <p class="text-[11px] md:text-[14px] text-[#4A5565] group-hover:text-white/90 mt-1 mb-2">ছোট ব্যবসার
+                        জন্য</p>
                     <div
-                        class="text-[24px] font-bold mb-8 text-white group-hover:text-white md:text-[35px]  md:text-[#282727]">
-                        TK ৯৯৯
-                        <span
-                            class="text-[15px] md:text-lg font-normal text-[#4A5565] group-hover:text-white">/মাস</span>
+                        class="text-[22px] md:text-[35px] font-bold text-[#282727] group-hover:text-white mb-4 md:mb-6">
+                        <span class="price-value" data-base-price="1199">১১৯৯</span>৳<span
+                            class="text-xs md:text-lg font-normal opacity-80">/মাস</span>
                     </div>
-
-                    <ul class="space-y-4 mb-10 flex-grow">
-                        <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
-                            <span class="text-[#FF6900] group-hover:text-white">✓</span> 5টি পর্যন্ত যানবাহন
-                        </li>
-                        <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
-                            <span class="text-[#FF6900] group-hover:text-white">✓</span> বেসিক ট্রিপ ট্র্যাকিং
-                        </li>
-                        <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
-                            <span class="text-[#FF6900] group-hover:text-white">✓</span> ডিজিটাল রেকর্ড ব্যবস্থাপনা
-                        </li>
-                        <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
-                            <span class="text-[#FF6900] group-hover:text-white">✓</span> মোবাইল অ্যাপ অ্যাক্সেস
-                        </li>
-                        <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
-                            <span class="text-[#FF6900] group-hover:text-white">✓</span> 30 দিনের ডেটা ইতিহাস
-                        </li>
+                    <ul class="hidden md:block space-y-3 mb-8 text-sm text-[#364153] group-hover:text-white">
+                        <li>✓ ৫টি পর্যন্ত যানবাহন</li>
+                        <li>✓ ১ থেকে ১০ টি গাড়ি ম্যানেজমেন্ট</li>
+                        <li>✓ ট্রিপ হিসাব ও মনিটরিং</li>
+                        <li>✓ রোড এক্সপেন্স ট্র্যাকিং</li>
+                        <li>✓ জ্বালানি ব্যবস্থাপনা</li>
+                        <li>✓ সার্ভিসিং ও রক্ষণাবেক্ষণ</li>
+                        <li>✓ গাড়ির কিস্তি ও পেমেন্ট হিসাব</li>
+                        <li>✓ পার্টস ও স্টক ম্যানেজমেন্ট</li>
+                        <li>✓ ডিজিটাল বিল তৈরি</li>
+                        <li>✓ পাওনার হিসাব ও ট্র্যাকিং</li>
+                        <li>✓ দেনা হিসাব ট্র্যাকিং</li>
+                        <li>✓ এসএমএস/ইমেইল নোটিফিকেশন সিস্টেম</li>
+                        <li>✓ কর্মচারী ওটিপি যাচাই</li>
+                        <li>✓ মাল্টি-ইউজার এক্সেস (২ জন পর্যন্ত)</li>
+                        <li>✓ বেতন ও কমিশন হিসাব</li>
+                        <li>✓ ডকুমেন্টের মেয়াদোত্তীর্ণ দৃশ্যমানতা</li>
+                        <li>✓ ব্যালেন্স স্টেটমেন্ট ও ক্যাশফ্লো রিপোর্ট</li>
+                        <li>✓ ট্রিপ রিজার্ভেশন ও বুকিং ব্যবস্থা</li>
                     </ul>
-
-                    <button class="w-full text-white py-4 rounded-full font-bold text-lg transition
-                           bg-[linear-gradient(180deg,_#FF5A00_0%,_#FF7700_100%)] 
-                           group-hover:bg-none group-hover:bg-white group-hover:text-[#ff6b00]">
-                        যোগাযোগ করুন
-                    </button>
+                    <button
+                        class="hidden md:block mt-auto w-full py-3 rounded-full font-bold bg-orange-600 text-white group-hover:bg-white group-hover:text-orange-600 transition-colors">যোগাযোগ
+                        করুন</button>
                 </div>
             </div>
 
-            <div class="group relative border border-gray-200 rounded-[2rem] p-8 flex flex-col bg-white 
-            transition duration-300">
-                <div class="absolute inset-0 bg-[linear-gradient(180deg,_#FF5A00_0%,_#FF7700_100%)] opacity-0 
-                group-hover:opacity-100 transition duration-300 rounded-[2rem] z-0"></div>
-
-                <div class="absolute -top-3 left-1/2 -translate-x-1/2 z-20
-                bg-black text-white text-[12px] py-1 px-4 rounded-full font-bold whitespace-nowrap">
-                    সবচেয়ে জনপ্রিয়
-                </div>
+            <div
+                class="group relative border border-gray-200 rounded-[1.5rem] md:rounded-[2rem] p-4 md:p-8 flex flex-col bg-white hover:bg-orange-600 transition-all duration-300 shadow-sm hover:shadow-xl">
+                <div
+                    class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#282727] text-white text-[9px] md:text-[12px] py-1 px-3 rounded-full font-bold whitespace-nowrap z-20">
+                    সবচেয়ে জনপ্রিয়</div>
 
                 <div class="relative z-10 flex flex-col h-full">
-                    <h3
-                        class="text-[20px] md:text-[24px] font-bold text-white md:text-[#282727] group-hover:text-white">
-                        Business</h3>
-                    <p class="text-[15px] md:text-sm text-[#4A5565] mb-6 group-hover:text-white">নিয়মিত ট্রিপের জন্য
-                    </p>
-
-                    <div
-                        class="text-[24px] font-bold mb-8 text-white group-hover:text-white md:text-[35px]  md:text-[#282727]">
-                        TK ২৪৯৯
-                        <span
-                            class="text-[15px] md:text-lg font-normal text-[#4A5565] group-hover:text-white">/মাস</span>
-                    </div>
-
-                    <ul class="space-y-4 mb-10 flex-grow">
-                        <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
-                            <span class="text-[#FF6900] group-hover:text-white">✓</span> 25টি পর্যন্ত যানবাহন
-                        </li>
-                        <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
-                            <span class="text-[#FF6900] group-hover:text-white">✓</span> রিয়েল-টাইম জিপিএস
-                        </li>
-                        <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
-                            <span class="text-[#FF6900] group-hover:text-white">✓</span> উন্নত বিশ্লেষণ এবং প্রতিবেদন
-                        </li>
-                        <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
-                            <span class="text-[#FF6900] group-hover:text-white">✓</span> রুট অপটিমাইজেশন
-                        </li>
-                        <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
-                            <span class="text-[#FF6900] group-hover:text-white">✓</span> অগ্রাধিকার সমর্থন
-                        </li>
-                        <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
-                            <span class="text-[#FF6900] group-hover:text-white">✓</span> সীমাহীন ডেটা ইতিহাস
-                        </li>
-                        <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
-                            <span class="text-[#FF6900] group-hover:text-white">✓</span> API অ্যাক্সেস
-                        </li>
-                        <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
-                            <span class="text-[#FF6900] group-hover:text-white">✓</span> মাল্টি-ইউজার অ্যাক্সেস
-                        </li>
-                    </ul>
-
-                    <button class="w-full text-white py-4 rounded-full font-bold text-lg transition
-                           bg-[linear-gradient(180deg,_#FF5A00_0%,_#FF7700_100%)] 
-                           group-hover:bg-none group-hover:bg-white group-hover:text-[#ff6b00]">
-                        যোগাযোগ করুন
-                    </button>
-                </div>
-            </div>
-
-            <div class="group border border-gray-200 rounded-[2rem] p-8 flex flex-col bg-white 
-            transition duration-300 relative overflow-hidden">
-                <div class="absolute inset-0 bg-[linear-gradient(180deg,_#FF5A00_0%,_#FF7700_100%)] opacity-0 
-                group-hover:opacity-100 transition duration-300 rounded-[2rem] z-0"></div>
-
-                <div class="relative z-10 flex flex-col h-full">
-                    <h3
-                        class="text-[20px] md:text-[24px] font-bold text-white md:text-[#282727] group-hover:text-white">
-                        Enterprise
+                    <h3 class="text-[18px] md:text-[24px] font-bold text-[#282727] group-hover:text-white">স্ট্যান্ডার্ড
                     </h3>
-                    <p class="text-[15px] md:text-sm text-[#4A5565] mb-6 group-hover:text-white">বড় ফ্লিটের জন্য</p>
-
+                    <p class="text-[11px] md:text-[14px] text-[#4A5565] group-hover:text-white/90 mt-1 mb-2">মাঝারি
+                        ব্যবসার জন্য</p>
                     <div
-                        class="text-[24px] font-bold mb-8 text-white group-hover:text-white md:text-[35px]  md:text-[#282727]">
-                        TK ৪৯৯৯
-                        <span
-                            class="text-[15px] md:text-lg font-normal text-[#4A5565] group-hover:text-white">/মাস</span>
+                        class="text-[22px] md:text-[35px] font-bold text-[#282727] group-hover:text-white mb-4 md:mb-6">
+                        <span class="price-value" data-base-price="2299">২২৯৯</span>৳<span
+                            class="text-xs md:text-lg font-normal opacity-80">/মাস</span>
                     </div>
-
-                    <ul class="space-y-4 mb-10 flex-grow">
-                        <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
-                            <span class="text-[#FF6900] group-hover:text-white">✓</span> সীমাহীন যানবাহন
-                        </li>
-                        <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
-                            <span class="text-[#FF6900] group-hover:text-white">✓</span> ডেডিকেটেড অ্যাকাউন্ট ম্যানেজার
-                        </li>
-                        <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
-                            <span class="text-[#FF6900] group-hover:text-white">✓</span> কাস্টম ইন্টিগ্রেশন
-                        </li>
-                        <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
-                            <span class="text-[#FF6900] group-hover:text-white">✓</span> হোয়াইট-লেবেল অপশন
-                        </li>
-                        <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
-                            <span class="text-[#FF6900] group-hover:text-white">✓</span> উন্নত নিরাপত্তা বৈশিষ্ট্য
-                        </li>
-                        <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
-                            <span class="text-[#FF6900] group-hover:text-white">✓</span> কাস্টম প্রশিক্ষণ
-                        </li>
-                        <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
-                            <span class="text-[#FF6900] group-hover:text-white">✓</span> 24/7 ফোন সমর্থন
-                        </li>
-                        <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
-                            <span class="text-[#FF6900] group-hover:text-white">✓</span> SLA গ্যারান্টি
-                        </li>
+                    <ul class="hidden md:block space-y-3 mb-8 text-sm text-[#364153] group-hover:text-white">
+                        <li>✓ ১০ থেকে ১৫ টি গাড়ি ম্যানেজমেন্ট</li>
+                        <li>✓ ট্রিপ হিসাব ও মনিটরিং</li>
+                        <li>✓ রোড এক্সপেন্স ট্র্যাকিং</li>
+                        <li>✓ জ্বালানি ব্যবস্থাপনা</li>
+                        <li>✓ সার্ভিসিং ও রক্ষণাবেক্ষণ</li>
+                        <li>✓ গাড়ির কিস্তি ও পেমেন্ট হিসাব</li>
+                        <li>✓ পার্টস ও স্টক ম্যানেজমেন্ট</li>
+                        <li>✓ ডিজিটাল বিল তৈরি</li>
+                        <li>✓ পাওনার হিসাব ও ট্র্যাকিং</li>
+                        <li>✓ দেনা হিসাব ট্র্যাকিং</li>
+                        <li>✓ এসএমএস/ইমেইল নোটিফিকেশন সিস্টেম</li>
+                        <li>✓ কর্মচারী ওটিপি যাচাই</li>
+                        <li>✓ মাল্টি-ইউজার এক্সেস (৩ জন পর্যন্ত)</li>
+                        <li>✓ চালান আপলোড (১২ মাস)</li>
+                        <li>✓ বেতন ও কমিশন হিসাব</li>
+                        <li>✓ ডকুমেন্টের মেয়াদোত্তীর্ণ দৃশ্যমানতা</li>
+                        <li>✓ ব্যালেন্স স্টেটমেন্ট ও ক্যাশফ্লো রিপোর্ট</li>
+                        <li>✓ ট্রিপ রিজার্ভেশন ও বুকিং ব্যবস্থা</li>
+                        <li>✓ লাইভ সাপোর্ট</li>
                     </ul>
-
-                    <button class="w-full text-white py-4 rounded-full font-bold text-lg transition
-                           bg-[linear-gradient(180deg,_#FF5A00_0%,_#FF7700_100%)] 
-                           group-hover:bg-none group-hover:bg-white group-hover:text-[#ff6b00]">
-                        যোগাযোগ করুন
-                    </button>
+                    <button
+                        class="hidden md:block mt-auto w-full py-3 rounded-full font-bold bg-orange-600 text-white group-hover:bg-white group-hover:text-orange-600 transition-colors">যোগাযোগ
+                        করুন</button>
                 </div>
             </div>
 
-            <div class="group border border-gray-200 rounded-[2rem] p-8 flex flex-col bg-white 
-            transition duration-300 relative overflow-hidden">
-                <div class="absolute inset-0 bg-[linear-gradient(180deg,_#FF5A00_0%,_#FF7700_100%)] opacity-0 
-                group-hover:opacity-100 transition duration-300 rounded-[2rem] z-0"></div>
-
+            <div
+                class="group relative border border-gray-200 rounded-[1.5rem] md:rounded-[2rem] p-4 md:p-8 flex flex-col bg-white hover:bg-orange-600 transition-all duration-300 overflow-hidden">
                 <div class="relative z-10 flex flex-col h-full">
-                    <h3
-                        class="text-[20px] md:text-[24px] font-bold text-white md:text-[#282727] group-hover:text-white">
-                        Enterprise Pro
+                    <h3 class="text-[18px] md:text-[24px] font-bold text-[#282727] group-hover:text-white">প্রো প্ল্যান
                     </h3>
-                    <p class="text-[15px] md:text-sm text-[#4A5565] mb-6 group-hover:text-white">বড় ফ্লিটের জন্য</p>
-
+                    <p class="text-[11px] md:text-[14px] text-[#4A5565] group-hover:text-white/90 mt-1 mb-2">বড় ব্যবসার
+                        জন্য</p>
                     <div
-                        class="text-[24px] font-bold mb-8 text-white group-hover:text-white md:text-[35px]  md:text-[#282727]">
-                        TK ৯৯৯৯
-                        <span
-                            class="text-[15px] md:text-lg font-normal text-[#4A5565] group-hover:text-white">/মাস</span>
+                        class="text-[22px] md:text-[35px] font-bold text-[#282727] group-hover:text-white mb-4 md:mb-6">
+                        <span class="price-value" data-base-price="4799">৪৭৯৯</span>৳<span
+                            class="text-xs md:text-lg font-normal opacity-80">/মাস</span>
                     </div>
-
-                    <ul class="space-y-4 mb-10 flex-grow">
-                        <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
-                            <span class="text-[#FF6900] group-hover:text-white">✓</span> সীমাহীন যানবাহন
-                        </li>
-                        <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
-                            <span class="text-[#FF6900] group-hover:text-white hover:text-white">✓</span> ডেডিকেটেড
-                            অ্যাকাউন্ট ম্যানেজার
-                        </li>
-                        <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
-                            <span class="text-[#FF6900] group-hover:text-white hover:text-white">✓</span> কাস্টম
-                            ইন্টিগ্রেশন
-                        </li>
-                        <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
-                            <span class="text-[#FF6900] group-hover:text-white hover:text-white">✓</span> হোয়াইট-লেবেল
-                            অপশন
-                        </li>
-                        <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
-                            <span class="text-[#FF6900] group-hover:text-white hover:text-white">✓</span> উন্নত
-                            নিরাপত্তা বৈশিষ্ট্য
-                        </li>
-                        <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
-                            <span class="text-[#FF6900] group-hover:text-white hover:text-white">✓</span> কাস্টম
-                            প্রশিক্ষণ
-                        </li>
-                        <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
-                            <span class="text-[#FF6900] group-hover:text-white hover:text-white">✓</span> 24/7 ফোন
-                            সমর্থন
-                        </li>
-                        <li class="flex gap-3 text-[15px] md:text-base text-gray-700 group-hover:text-white">
-                            <span class="text-[#FF6900] group-hover:text-white hover:text-white">✓</span> SLA গ্যারান্টি
-                        </li>
+                    <ul class="hidden md:block space-y-3 mb-8 text-sm text-[#364153] group-hover:text-white">
+                        <li>✓ ১৫-২৫টি গাড়ি ম্যানেজমেন্ট</li>
+                        <li>✓ ট্রিপ হিসাব ও মনিটরিং</li>
+                        <li>✓ রোড এক্সপেন্স ট্র্যাকিং</li>
+                        <li>✓ জ্বালানি ব্যবস্থাপনা</li>
+                        <li>✓ সার্ভিসিং ও রক্ষণাবেক্ষণ</li>
+                        <li>✓ গাড়ির কিস্তি ও পেমেন্ট হিসাব</li>
+                        <li>✓ পার্টস ও স্টক ম্যানেজমেন্ট</li>
+                        <li>✓ ডিজিটাল বিল তৈরি</li>
+                        <li>✓ পাওনার হিসাব ও ট্র্যাকিং</li>
+                        <li>✓ দেনা হিসাব ট্র্যাকিং</li>
+                        <li>✓ এসএমএস/ইমেইল নোটিফিকেশন সিস্টেম</li>
+                        <li>✓ কর্মচারী ওটিপি যাচাই</li>
+                        <li>✓ মাল্টি-ইউজার এক্সেস (৫ জন পর্যন্ত)</li>
+                        <li>✓ চালান আপলোড (১২ মাস)</li>
+                        <li>✓ বেতন ও কমিশন হিসাব</li>
+                        <li>✓ ডকুমেন্টের মেয়াদোত্তীর্ণ দৃশ্যমানতা</li>
+                        <li>✓ ব্যালেন্স স্টেটমেন্ট ও ক্যাশফ্লো রিপোর্ট</li>
+                        <li>✓ ডেডিকেটেড একাউন্ট ম্যানেজার ও লাইভ সাপোর্ট</li>
+                        <li>✓ অ্যাপ্রুভাল ও ভেরিফাই সিস্টেম</li>
+                        <li>✓ ট্রিপ রিজার্ভেশন ও বুকিং ব্যবস্থা</li>
                     </ul>
+                    <button
+                        class="hidden md:block mt-auto w-full py-3 rounded-full font-bold bg-orange-600 text-white group-hover:bg-white group-hover:text-orange-600 transition-colors">যোগাযোগ
+                        করুন</button>
+                </div>
+            </div>
 
-                    <button class="w-full text-white py-4 rounded-full font-bold text-lg transition
-                           bg-[linear-gradient(180deg,_#FF5A00_0%,_#FF7700_100%)] 
-                           group-hover:bg-none group-hover:bg-white group-hover:text-[#ff6b00]">
-                        যোগাযোগ করুন
-                    </button>
+            <div
+                class="group relative border border-gray-200 rounded-[1.5rem] md:rounded-[2rem] p-4 md:p-8 flex flex-col bg-white hover:bg-orange-600 transition-all duration-300 overflow-hidden">
+                <div class="relative z-10 flex flex-col h-full">
+                    <h3 class="text-[18px] md:text-[24px] font-bold text-[#282727] group-hover:text-white">প্রিমিয়াম
+                    </h3>
+                    <p class="text-[11px] md:text-[14px] text-[#4A5565] group-hover:text-white/90 mt-1 mb-2">
+                        এন্টারপ্রাইজ সলিউশন</p>
+                    <div
+                        class="text-[22px] md:text-[35px] font-bold text-[#282727] group-hover:text-white mb-4 md:mb-6">
+                        <span class="price-value" data-base-price="7799">৭৭৯৯</span>৳<span
+                            class="text-xs md:text-lg font-normal opacity-80">/মাস</span>
+                    </div>
+                    <ul class="hidden md:block space-y-3 mb-8 text-sm text-[#364153] group-hover:text-white">
+                        <li>✓ ২৫-৬০টি গাড়ি ম্যানেজমেন্ট</li>
+                        <li>✓ ট্রিপ হিসাব ও মনিটরিং</li>
+                        <li>✓ রোড এক্সপেন্স ট্র্যাকিং</li>
+                        <li>✓ জ্বালানি ব্যবস্থাপনা</li>
+                        <li>✓ সার্ভিসিং ও রক্ষণাবেক্ষণ</li>
+                        <li>✓ গাড়ির কিস্তি ও পেমেন্ট হিসাব</li>
+                        <li>✓ পার্টস ও স্টক ম্যানেজমেন্ট</li>
+                        <li>✓ ডিজিটাল বিল তৈরি</li>
+                        <li>✓ পাওনার হিসাব ও ট্র্যাকিং</li>
+                        <li>✓ দেনা হিসাব ট্র্যাকিং</li>
+                        <li>✓ এসএমএস/ইমেইল নোটিফিকেশন সিস্টেম</li>
+                        <li>✓ কর্মচারী ওটিপি যাচাই</li>
+                        <li>✓ মাল্টি-ইউজার এক্সেস (১০ জন পর্যন্ত)</li>
+                        <li>✓ চালান আপলোড (১২ মাস)</li>
+                        <li>✓ বেতন ও কমিশন হিসাব</li>
+                        <li>✓ ডকুমেন্টের মেয়াদোত্তীর্ণ দৃশ্যমানতা</li>
+                        <li>✓ ব্যালেন্স স্টেটমেন্ট ও ক্যাশফ্লো রিপোর্ট</li>
+                        <li>✓ ডেডিকেটেড একাউন্ট ম্যানেজার ও লাইভ সাপোর্ট</li>
+                        <li>✓ অ্যাপ্রুভাল ও ভেরিফাই সিস্টেম</li>
+                        <li>✓ ট্রিপ রিজার্ভেশন ও বুকিং ব্যবস্থা</li>
+                    </ul>
+                    <button
+                        class="hidden md:block mt-auto w-full py-3 rounded-full font-bold bg-orange-600 text-white group-hover:bg-white group-hover:text-orange-600 transition-colors">যোগাযোগ
+                        করুন</button>
                 </div>
             </div>
 
         </div>
     </div>
+
+    <script>
+        const tabs = document.querySelectorAll('.tab');
+        const underline = document.getElementById('underline');
+        const priceValues = document.querySelectorAll('.price-value');
+
+        function toBengaliNum(num) {
+            const bengali = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
+            return num.toString().replace(/\d/g, d => bengali[d]);
+        }
+
+        function updateUI(selectedTab) {
+            const discount = parseFloat(selectedTab.getAttribute('data-discount'));
+            const rect = selectedTab.getBoundingClientRect();
+            const parentRect = selectedTab.parentElement.getBoundingClientRect();
+
+            underline.style.width = rect.width + 'px';
+            underline.style.transform = `translateX(${rect.left - parentRect.left}px)`;
+
+            priceValues.forEach(el => {
+                const base = parseInt(el.getAttribute('data-base-price'));
+                const final = Math.round(base * (1 - discount));
+                el.innerText = toBengaliNum(final);
+            });
+
+            tabs.forEach(t => {
+                t.classList.remove('text-orange-500');
+                t.classList.add('text-[#282727]');
+            });
+            selectedTab.classList.add('text-orange-500');
+            selectedTab.classList.remove('text-[#282727]');
+        }
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => updateUI(tab));
+        });
+
+        window.addEventListener('load', () => updateUI(tabs[0]));
+        window.addEventListener('resize', () => updateUI(document.querySelector('.tab.text-orange-500')));
+    </script>
+
+    <style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
 </section>
 
 
@@ -1633,15 +1583,32 @@
             </h4>
             <ul class="space-y-6 text-[#282727] text-[14px] font-normal leading-[100%] font-['Roboto']">
                 <li class="flex flex-col lg:flex-row items-center lg:items-start gap-3 text-white text-white">
-                    <img src="call.png" />
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path
+                            d="M3.77762 11.9424C2.8296 10.2893 2.37185 8.93948 2.09584 7.57121C1.68762 5.54758 2.62181 3.57081 4.16938 2.30947C4.82345 1.77638 5.57323 1.95852 5.96 2.6524L6.83318 4.21891C7.52529 5.46057 7.87134 6.08139 7.8027 6.73959C7.73407 7.39779 7.26737 7.93386 6.33397 9.00601L3.77762 11.9424ZM3.77762 11.9424C5.69651 15.2883 8.70784 18.3013 12.0576 20.2224M12.0576 20.2224C13.7107 21.1704 15.0605 21.6282 16.4288 21.9042C18.4524 22.3124 20.4292 21.3782 21.6905 19.8306C22.2236 19.1766 22.0415 18.4268 21.3476 18.04L19.7811 17.1668C18.5394 16.4747 17.9186 16.1287 17.2604 16.1973C16.6022 16.2659 16.0661 16.7326 14.994 17.666L12.0576 20.2224Z"
+                            stroke="white" stroke-width="1.5" stroke-linejoin="round" />
+                    </svg>
                     <span>(406) 555-0120</span>
                 </li>
                 <li class="flex flex-col lg:flex-row items-center lg:items-start gap-3 text-white">
-                    <img src="email.png" />
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="19" viewBox="0 0 22 19" fill="none">
+                        <path d="M0.75 3.25L7.66302 7.16697C10.2116 8.61101 11.2884 8.61101 13.837 7.16697L20.75 3.25"
+                            stroke="white" stroke-width="1.5" stroke-linejoin="round" />
+                        <path
+                            d="M0.765766 10.7256C0.831141 13.7912 0.863829 15.3239 1.99496 16.4594C3.12608 17.5948 4.70033 17.6343 7.84883 17.7134C9.78931 17.7622 11.7107 17.7622 13.6512 17.7134C16.7997 17.6343 18.3739 17.5948 19.5051 16.4594C20.6362 15.3239 20.6689 13.7912 20.7342 10.7256C20.7553 9.73994 20.7553 8.76008 20.7342 7.77439C20.6689 4.70886 20.6362 3.17609 19.5051 2.04066C18.3739 0.905231 16.7997 0.865677 13.6512 0.786569C11.7107 0.737813 9.78931 0.73781 7.84882 0.786562C4.70033 0.865664 3.12608 0.905215 1.99495 2.04065C0.863823 3.17608 0.831137 4.70885 0.765764 7.77438C0.744745 8.76007 0.744745 9.73994 0.765766 10.7256Z"
+                            stroke="white" stroke-width="1.5" stroke-linejoin="round" />
+                    </svg>
                     <span class="break-all">info@tripkhata.com</span>
                 </li>
                 <li class="flex flex-col lg:flex-row items-center lg:items-start gap-3 text-white">
-                    <img src="location.png" />
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="24" viewBox="0 0 24 24" fill="none">
+                        <path
+                            d="M13.6177 21.367C13.1841 21.773 12.6044 22 12.0011 22C11.3978 22 10.8182 21.773 10.3845 21.367C6.41302 17.626 1.09076 13.4469 3.68627 7.37966C5.08963 4.09916 8.45834 2 12.0011 2C15.5439 2 18.9126 4.09916 20.316 7.37966C22.9082 13.4393 17.599 17.6389 13.6177 21.367Z"
+                            stroke="white" stroke-width="1.5" />
+                        <path
+                            d="M15.5 11C15.5 12.933 13.933 14.5 12 14.5C10.067 14.5 8.5 12.933 8.5 11C8.5 9.067 10.067 7.5 12 7.5C13.933 7.5 15.5 9.067 15.5 11Z"
+                            stroke="white" stroke-width="1.5" />
+                    </svg>
                     <span class="max-w-[250px] leading-[150%]">৩য় তলা, টি-১৮১, বাড্ডা হাই স্কুল রোড, বাড্ডা,
                         ঢাকা-১২১২</span>
                 </li>
@@ -1727,15 +1694,33 @@
                 <h4 class="text-xl font-bold">যোগাযোগ</h4>
                 <ul class="space-y-4 text-sm text-white">
                     <li class="flex items-start gap-2 text-white">
-                        <img src="call.png" />
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M3.77762 11.9424C2.8296 10.2893 2.37185 8.93948 2.09584 7.57121C1.68762 5.54758 2.62181 3.57081 4.16938 2.30947C4.82345 1.77638 5.57323 1.95852 5.96 2.6524L6.83318 4.21891C7.52529 5.46057 7.87134 6.08139 7.8027 6.73959C7.73407 7.39779 7.26737 7.93386 6.33397 9.00601L3.77762 11.9424ZM3.77762 11.9424C5.69651 15.2883 8.70784 18.3013 12.0576 20.2224M12.0576 20.2224C13.7107 21.1704 15.0605 21.6282 16.4288 21.9042C18.4524 22.3124 20.4292 21.3782 21.6905 19.8306C22.2236 19.1766 22.0415 18.4268 21.3476 18.04L19.7811 17.1668C18.5394 16.4747 17.9186 16.1287 17.2604 16.1973C16.6022 16.2659 16.0661 16.7326 14.994 17.666L12.0576 20.2224Z"
+                                stroke="white" stroke-width="1.5" stroke-linejoin="round" />
+                        </svg>
                         <span>(406) 555-0120</span>
                     </li>
                     <li class="flex items-start gap-2 text-white">
-                        <img src="email.png" />
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="19" viewBox="0 0 22 19" fill="none">
+                            <path
+                                d="M0.75 3.25L7.66302 7.16697C10.2116 8.61101 11.2884 8.61101 13.837 7.16697L20.75 3.25"
+                                stroke="white" stroke-width="1.5" stroke-linejoin="round" />
+                            <path
+                                d="M0.765766 10.7256C0.831141 13.7912 0.863829 15.3239 1.99496 16.4594C3.12608 17.5948 4.70033 17.6343 7.84883 17.7134C9.78931 17.7622 11.7107 17.7622 13.6512 17.7134C16.7997 17.6343 18.3739 17.5948 19.5051 16.4594C20.6362 15.3239 20.6689 13.7912 20.7342 10.7256C20.7553 9.73994 20.7553 8.76008 20.7342 7.77439C20.6689 4.70886 20.6362 3.17609 19.5051 2.04066C18.3739 0.905231 16.7997 0.865677 13.6512 0.786569C11.7107 0.737813 9.78931 0.73781 7.84882 0.786562C4.70033 0.865664 3.12608 0.905215 1.99495 2.04065C0.863823 3.17608 0.831137 4.70885 0.765764 7.77438C0.744745 8.76007 0.744745 9.73994 0.765766 10.7256Z"
+                                stroke="white" stroke-width="1.5" stroke-linejoin="round" />
+                        </svg>
                         <span class="break-all">info@tripkhata.com</span>
                     </li>
                     <li class="flex items-start gap-2 text-white">
-                        <img src="location.png" />
+                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="24" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M13.6177 21.367C13.1841 21.773 12.6044 22 12.0011 22C11.3978 22 10.8182 21.773 10.3845 21.367C6.41302 17.626 1.09076 13.4469 3.68627 7.37966C5.08963 4.09916 8.45834 2 12.0011 2C15.5439 2 18.9126 4.09916 20.316 7.37966C22.9082 13.4393 17.599 17.6389 13.6177 21.367Z"
+                                stroke="white" stroke-width="1.5" />
+                            <path
+                                d="M15.5 11C15.5 12.933 13.933 14.5 12 14.5C10.067 14.5 8.5 12.933 8.5 11C8.5 9.067 10.067 7.5 12 7.5C13.933 7.5 15.5 9.067 15.5 11Z"
+                                stroke="white" stroke-width="1.5" />
+                        </svg>
                         <span>৩য় তলা, টি-১৮১, বাড্ডা হাই স্কুল রোড, বাড্ডা, ঢাকা-১২১২</span>
                     </li>
                 </ul>
