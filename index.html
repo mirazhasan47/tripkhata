@@ -24,6 +24,23 @@
             background-repeat: no-repeat;
             width: 100%;
         }
+        .lis svg {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+li {
+  white-space: nowrap; 
+}
+
+.group:hover .lis {
+    color: white;
+}
+
+.group:hover .lis svg {
+    color: white;
+}
 
         /* Mobile (override only image) */
         @media (max-width: 767px) {
@@ -189,9 +206,9 @@
     </div>
 </div>
 
-<div id="mobileMenu" class="hidden fixed inset-0 z-50 bg-white flex-col hide-md overflow-hidden" style="background-image: url('vector_image_cross.png'); 
-    background-size: contain; 
-    background-position: center; 
+<div id="mobileMenu" class="hidden fixed inset-0 z-50 bg-white flex-col hide-md overflow-hidden" style="    background-image: url('vector_image_cross.png');
+    background-size: cover;
+    background-position: bottom;
     background-repeat: no-repeat;
     width: 100%;">
 
@@ -1080,35 +1097,107 @@
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 items-stretch">
 
             <div
-                class="group relative border border-gray-200 rounded-[1.5rem] md:rounded-[2rem] p-4 md:p-8 flex flex-col bg-white hover:[background:linear-gradient(180deg,#FF5A00_0%,#FF7700_100%)] transition-all duration-300 overflow-hidden">
+                class="group relative border border-gray-200 rounded-[1.5rem] md:rounded-[2rem] p-4 md:p-8 flex flex-col bg-white hover:[background:linear-gradient(180deg,#FF5A00_0%,#FF7700_100%)] hover:text-white transition-all">
                 <div class="relative z-10 flex flex-col h-full">
                     <h3 class="text-[18px] md:text-[24px] font-bold text-[#282727] group-hover:text-white">বেসিক</h3>
                     <p class="text-[11px] md:text-[14px] text-[#4A5565] group-hover:text-white/90 mt-1 mb-2">ছোট ব্যবসার
                         জন্য</p>
                     <div
-                        class="text-[22px] md:text-[35px] font-bold text-[#282727] group-hover:text-white mb-4 md:mb-6">
+                        class="text-[22px] md:text-[35px] font-bold mb-4 md:mb-6">
                         <span class="price-value" data-base-price="1199">১১৯৯</span>৳<span
                             class="text-xs md:text-lg font-normal opacity-80">/মাস</span>
                     </div>
-                    <ul class="hidden md:block space-y-3 mb-8 text-sm text-[#364153] group-hover:text-white">
-                        <li>✓ ৫টি পর্যন্ত যানবাহন</li>
-                        <li>✓ ১ থেকে ১০ টি গাড়ি ম্যানেজমেন্ট</li>
-                        <li>✓ ট্রিপ হিসাব ও মনিটরিং</li>
-                        <li>✓ রোড এক্সপেন্স ট্র্যাকিং</li>
-                        <li>✓ জ্বালানি ব্যবস্থাপনা</li>
-                        <li>✓ সার্ভিসিং ও রক্ষণাবেক্ষণ</li>
-                        <li>✓ গাড়ির কিস্তি ও পেমেন্ট হিসাব</li>
-                        <li>✓ পার্টস ও স্টক ম্যানেজমেন্ট</li>
-                        <li>✓ ডিজিটাল বিল তৈরি</li>
-                        <li>✓ পাওনার হিসাব ও ট্র্যাকিং</li>
-                        <li>✓ দেনা হিসাব ট্র্যাকিং</li>
-                        <li>✓ এসএমএস/ইমেইল নোটিফিকেশন সিস্টেম</li>
-                        <li>✓ কর্মচারী ওটিপি যাচাই</li>
-                        <li>✓ মাল্টি-ইউজার এক্সেস (২ জন পর্যন্ত)</li>
-                        <li>✓ বেতন ও কমিশন হিসাব</li>
-                        <li>✓ ডকুমেন্টের মেয়াদোত্তীর্ণ দৃশ্যমানতা</li>
-                        <li>✓ ব্যালেন্স স্টেটমেন্ট ও ক্যাশফ্লো রিপোর্ট</li>
-                        <li>✓ ট্রিপ রিজার্ভেশন ও বুকিং ব্যবস্থা</li>
+                    <ul class="hidden md:block space-y-3 mb-8 text-sm">
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> ৫টি পর্যন্ত যানবাহন</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> ১ থেকে ১০ টি গাড়ি ম্যানেজমেন্ট</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> ট্রিপ হিসাব ও মনিটরিং</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> রোড এক্সপেন্স ট্র্যাকিং</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> জ্বালানি ব্যবস্থাপনা</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> সার্ভিসিং ও রক্ষণাবেক্ষণ</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> গাড়ির কিস্তি ও পেমেন্ট হিসাব</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> পার্টস ও স্টক ম্যানেজমেন্ট</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> ডিজিটাল বিল তৈরি</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> পাওনার হিসাব ও ট্র্যাকিং</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> দেনা হিসাব ট্র্যাকিং</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> এসএমএস/ইমেইল নোটিফিকেশন সিস্টেম</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> কর্মচারী ওটিপি যাচাই</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> মাল্টি-ইউজার এক্সেস (২ জন পর্যন্ত)</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> বেতন ও কমিশন হিসাব</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> ডকুমেন্টের মেয়াদোত্তীর্ণ দৃশ্যমানতা</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> ব্যালেন্স স্টেটমেন্ট ও ক্যাশফ্লো রিপোর্ট</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> ট্রিপ রিজার্ভেশন ও বুকিং ব্যবস্থা</li>
                     </ul>
                     <button
                         class="hidden md:block mt-auto w-full py-3 rounded-full font-bold bg-orange-600 text-white group-hover:bg-white group-hover:text-orange-600 transition-colors">যোগাযোগ
@@ -1117,7 +1206,7 @@
             </div>
 
             <div
-                class="group relative border border-gray-200 rounded-[1.5rem] md:rounded-[2rem] p-4 md:p-8 flex flex-col bg-white hover:[background:linear-gradient(180deg,#FF5A00_0%,#FF7700_100%)] transition-all duration-300 overflow-hidden">
+                class="group relative border border-gray-200 rounded-[1.5rem] md:rounded-[2rem] p-4 md:p-8 flex flex-col bg-white hover:[background:linear-gradient(180deg,#FF5A00_0%,#FF7700_100%)] transition-all duration-300">
                 <div
                     class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#282727] text-white text-[9px] md:text-[12px] py-1 px-3 rounded-full font-bold whitespace-nowrap z-20">
                     সবচেয়ে জনপ্রিয়</div>
@@ -1132,26 +1221,102 @@
                         <span class="price-value" data-base-price="2299">২২৯৯</span>৳<span
                             class="text-xs md:text-lg font-normal opacity-80">/মাস</span>
                     </div>
-                    <ul class="hidden md:block space-y-3 mb-8 text-sm text-[#364153] group-hover:text-white">
-                        <li>✓ ১০ থেকে ১৫ টি গাড়ি ম্যানেজমেন্ট</li>
-                        <li>✓ ট্রিপ হিসাব ও মনিটরিং</li>
-                        <li>✓ রোড এক্সপেন্স ট্র্যাকিং</li>
-                        <li>✓ জ্বালানি ব্যবস্থাপনা</li>
-                        <li>✓ সার্ভিসিং ও রক্ষণাবেক্ষণ</li>
-                        <li>✓ গাড়ির কিস্তি ও পেমেন্ট হিসাব</li>
-                        <li>✓ পার্টস ও স্টক ম্যানেজমেন্ট</li>
-                        <li>✓ ডিজিটাল বিল তৈরি</li>
-                        <li>✓ পাওনার হিসাব ও ট্র্যাকিং</li>
-                        <li>✓ দেনা হিসাব ট্র্যাকিং</li>
-                        <li>✓ এসএমএস/ইমেইল নোটিফিকেশন সিস্টেম</li>
-                        <li>✓ কর্মচারী ওটিপি যাচাই</li>
-                        <li>✓ মাল্টি-ইউজার এক্সেস (৩ জন পর্যন্ত)</li>
-                        <li>✓ চালান আপলোড (১২ মাস)</li>
-                        <li>✓ বেতন ও কমিশন হিসাব</li>
-                        <li>✓ ডকুমেন্টের মেয়াদোত্তীর্ণ দৃশ্যমানতা</li>
-                        <li>✓ ব্যালেন্স স্টেটমেন্ট ও ক্যাশফ্লো রিপোর্ট</li>
-                        <li>✓ ট্রিপ রিজার্ভেশন ও বুকিং ব্যবস্থা</li>
-                        <li>✓ লাইভ সাপোর্ট</li>
+                    <ul class="hidden md:block space-y-3 mb-8 text-sm  group-hover:text-white">
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> ১০ থেকে ১৫ টি গাড়ি ম্যানেজমেন্ট</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> ট্রিপ হিসাব ও মনিটরিং</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> রোড এক্সপেন্স ট্র্যাকিং</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> জ্বালানি ব্যবস্থাপনা</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> সার্ভিসিং ও রক্ষণাবেক্ষণ</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> গাড়ির কিস্তি ও পেমেন্ট হিসাব</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> পার্টস ও স্টক ম্যানেজমেন্ট</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> ডিজিটাল বিল তৈরি</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> পাওনার হিসাব ও ট্র্যাকিং</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> দেনা হিসাব ট্র্যাকিং</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> এসএমএস/ইমেইল নোটিফিকেশন সিস্টেম</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> কর্মচারী ওটিপি যাচাই</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> মাল্টি-ইউজার এক্সেস (৩ জন পর্যন্ত)</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> চালান আপলোড (১২ মাস)</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> বেতন ও কমিশন হিসাব</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> ডকুমেন্টের মেয়াদোত্তীর্ণ দৃশ্যমানতা</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> ব্যালেন্স স্টেটমেন্ট ও ক্যাশফ্লো রিপোর্ট</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> ট্রিপ রিজার্ভেশন ও বুকিং ব্যবস্থা</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> লাইভ সাপোর্ট</li>
                     </ul>
                     <button
                         class="hidden md:block mt-auto w-full py-3 rounded-full font-bold bg-orange-600 text-white group-hover:bg-white group-hover:text-orange-600 transition-colors">যোগাযোগ
@@ -1160,7 +1325,7 @@
             </div>
 
             <div
-                class="group relative border border-gray-200 rounded-[1.5rem] md:rounded-[2rem] p-4 md:p-8 flex flex-col bg-white hover:[background:linear-gradient(180deg,#FF5A00_0%,#FF7700_100%)] transition-all duration-300 overflow-hidden">
+                class="group relative border border-gray-200 rounded-[1.5rem] md:rounded-[2rem] p-4 md:p-8 flex flex-col bg-white hover:[background:linear-gradient(180deg,#FF5A00_0%,#FF7700_100%)] transition-all duration-300">
                 <div class="relative z-10 flex flex-col h-full">
                     <h3 class="text-[18px] md:text-[24px] font-bold text-[#282727] group-hover:text-white">প্রো প্ল্যান
                     </h3>
@@ -1171,27 +1336,107 @@
                         <span class="price-value" data-base-price="4799">৪৭৯৯</span>৳<span
                             class="text-xs md:text-lg font-normal opacity-80">/মাস</span>
                     </div>
-                    <ul class="hidden md:block space-y-3 mb-8 text-sm text-[#364153] group-hover:text-white">
-                        <li>✓ ১৫-২৫টি গাড়ি ম্যানেজমেন্ট</li>
-                        <li>✓ ট্রিপ হিসাব ও মনিটরিং</li>
-                        <li>✓ রোড এক্সপেন্স ট্র্যাকিং</li>
-                        <li>✓ জ্বালানি ব্যবস্থাপনা</li>
-                        <li>✓ সার্ভিসিং ও রক্ষণাবেক্ষণ</li>
-                        <li>✓ গাড়ির কিস্তি ও পেমেন্ট হিসাব</li>
-                        <li>✓ পার্টস ও স্টক ম্যানেজমেন্ট</li>
-                        <li>✓ ডিজিটাল বিল তৈরি</li>
-                        <li>✓ পাওনার হিসাব ও ট্র্যাকিং</li>
-                        <li>✓ দেনা হিসাব ট্র্যাকিং</li>
-                        <li>✓ এসএমএস/ইমেইল নোটিফিকেশন সিস্টেম</li>
-                        <li>✓ কর্মচারী ওটিপি যাচাই</li>
-                        <li>✓ মাল্টি-ইউজার এক্সেস (৫ জন পর্যন্ত)</li>
-                        <li>✓ চালান আপলোড (১২ মাস)</li>
-                        <li>✓ বেতন ও কমিশন হিসাব</li>
-                        <li>✓ ডকুমেন্টের মেয়াদোত্তীর্ণ দৃশ্যমানতা</li>
-                        <li>✓ ব্যালেন্স স্টেটমেন্ট ও ক্যাশফ্লো রিপোর্ট</li>
-                        <li>✓ ডেডিকেটেড একাউন্ট ম্যানেজার ও লাইভ সাপোর্ট</li>
-                        <li>✓ অ্যাপ্রুভাল ও ভেরিফাই সিস্টেম</li>
-                        <li>✓ ট্রিপ রিজার্ভেশন ও বুকিং ব্যবস্থা</li>
+                    <ul class="hidden md:block space-y-3 mb-8 text-sm  group-hover:text-white">
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> ১৫-২৫টি গাড়ি ম্যানেজমেন্ট</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> ট্রিপ হিসাব ও মনিটরিং</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> রোড এক্সপেন্স ট্র্যাকিং</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> জ্বালানি ব্যবস্থাপনা</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> সার্ভিসিং ও রক্ষণাবেক্ষণ</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> গাড়ির কিস্তি ও পেমেন্ট হিসাব</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> পার্টস ও স্টক ম্যানেজমেন্ট</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> ডিজিটাল বিল তৈরি</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> পাওনার হিসাব ও ট্র্যাকিং</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> দেনা হিসাব ট্র্যাকিং</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> এসএমএস/ইমেইল নোটিফিকেশন সিস্টেম</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> কর্মচারী ওটিপি যাচাই</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> মাল্টি-ইউজার এক্সেস (৫ জন পর্যন্ত)</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> চালান আপলোড (১২ মাস)</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> বেতন ও কমিশন হিসাব</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> ডকুমেন্টের মেয়াদোত্তীর্ণ দৃশ্যমানতা</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> ব্যালেন্স স্টেটমেন্ট ও ক্যাশফ্লো রিপোর্ট</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> ডেডিকেটেড একাউন্ট ম্যানেজার ও লাইভ সাপোর্ট</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> অ্যাপ্রুভাল ও ভেরিফাই সিস্টেম</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> ট্রিপ রিজার্ভেশন ও বুকিং ব্যবস্থা</li>
                     </ul>
                     <button
                         class="hidden md:block mt-auto w-full py-3 rounded-full font-bold bg-orange-600 text-white group-hover:bg-white group-hover:text-orange-600 transition-colors">যোগাযোগ
@@ -1200,7 +1445,7 @@
             </div>
 
             <div
-                class="group relative border border-gray-200 rounded-[1.5rem] md:rounded-[2rem] p-4 md:p-8 flex flex-col bg-white hover:[background:linear-gradient(180deg,#FF5A00_0%,#FF7700_100%)] transition-all duration-300 overflow-hidden">
+                class="group relative border border-gray-200 rounded-[1.5rem] md:rounded-[2rem] p-4 md:p-8 flex flex-col bg-white hover:[background:linear-gradient(180deg,#FF5A00_0%,#FF7700_100%)] transition-all duration-300">
                 <div class="relative z-10 flex flex-col h-full">
                     <h3 class="text-[18px] md:text-[24px] font-bold text-[#282727] group-hover:text-white">প্রিমিয়াম
                     </h3>
@@ -1211,27 +1456,107 @@
                         <span class="price-value" data-base-price="7799">৭৭৯৯</span>৳<span
                             class="text-xs md:text-lg font-normal opacity-80">/মাস</span>
                     </div>
-                    <ul class="hidden md:block space-y-3 mb-8 text-sm text-[#364153] group-hover:text-white">
-                        <li>✓ ২৫-৬০টি গাড়ি ম্যানেজমেন্ট</li>
-                        <li>✓ ট্রিপ হিসাব ও মনিটরিং</li>
-                        <li>✓ রোড এক্সপেন্স ট্র্যাকিং</li>
-                        <li>✓ জ্বালানি ব্যবস্থাপনা</li>
-                        <li>✓ সার্ভিসিং ও রক্ষণাবেক্ষণ</li>
-                        <li>✓ গাড়ির কিস্তি ও পেমেন্ট হিসাব</li>
-                        <li>✓ পার্টস ও স্টক ম্যানেজমেন্ট</li>
-                        <li>✓ ডিজিটাল বিল তৈরি</li>
-                        <li>✓ পাওনার হিসাব ও ট্র্যাকিং</li>
-                        <li>✓ দেনা হিসাব ট্র্যাকিং</li>
-                        <li>✓ এসএমএস/ইমেইল নোটিফিকেশন সিস্টেম</li>
-                        <li>✓ কর্মচারী ওটিপি যাচাই</li>
-                        <li>✓ মাল্টি-ইউজার এক্সেস (১০ জন পর্যন্ত)</li>
-                        <li>✓ চালান আপলোড (১২ মাস)</li>
-                        <li>✓ বেতন ও কমিশন হিসাব</li>
-                        <li>✓ ডকুমেন্টের মেয়াদোত্তীর্ণ দৃশ্যমানতা</li>
-                        <li>✓ ব্যালেন্স স্টেটমেন্ট ও ক্যাশফ্লো রিপোর্ট</li>
-                        <li>✓ ডেডিকেটেড একাউন্ট ম্যানেজার ও লাইভ সাপোর্ট</li>
-                        <li>✓ অ্যাপ্রুভাল ও ভেরিফাই সিস্টেম</li>
-                        <li>✓ ট্রিপ রিজার্ভেশন ও বুকিং ব্যবস্থা</li>
+                    <ul class="hidden md:block space-y-3 mb-8 text-sm  group-hover:text-white">
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> ২৫-৬০টি গাড়ি ম্যানেজমেন্ট</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> ট্রিপ হিসাব ও মনিটরিং</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> রোড এক্সপেন্স ট্র্যাকিং</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> জ্বালানি ব্যবস্থাপনা</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> সার্ভিসিং ও রক্ষণাবেক্ষণ</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> গাড়ির কিস্তি ও পেমেন্ট হিসাব</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> পার্টস ও স্টক ম্যানেজমেন্ট</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> ডিজিটাল বিল তৈরি</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> পাওনার হিসাব ও ট্র্যাকিং</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> দেনা হিসাব ট্র্যাকিং</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> এসএমএস/ইমেইল নোটিফিকেশন সিস্টেম</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> কর্মচারী ওটিপি যাচাই</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> মাল্টি-ইউজার এক্সেস (১০ জন পর্যন্ত)</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> চালান আপলোড (১২ মাস)</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> বেতন ও কমিশন হিসাব</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> ডকুমেন্টের মেয়াদোত্তীর্ণ দৃশ্যমানতা</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> ব্যালেন্স স্টেটমেন্ট ও ক্যাশফ্লো রিপোর্ট</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> ডেডিকেটেড একাউন্ট ম্যানেজার ও লাইভ সাপোর্ট</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> অ্যাপ্রুভাল ও ভেরিফাই সিস্টেম</li>
+                        <li class="lis"><svg xmlns="http://www.w3.org/2000/svg" class="text-[#FF6900]" width="16" height="13" viewBox="0 0 16 13"
+                                fill="none">
+                                <path d="M0.75 8.25L4.25 11.75L14.75 0.75" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg> ট্রিপ রিজার্ভেশন ও বুকিং ব্যবস্থা</li>
                     </ul>
                     <button
                         class="hidden md:block mt-auto w-full py-3 rounded-full font-bold bg-orange-600 text-white group-hover:bg-white group-hover:text-orange-600 transition-colors">যোগাযোগ
